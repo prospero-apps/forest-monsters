@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7768641078403763563}
   - component: {fileID: 1813144712642622962}
   - component: {fileID: 7973002517141830625}
+  - component: {fileID: 3208021369228967644}
   m_Layer: 0
   m_Name: ShortPlatform
   m_TagString: Untagged
@@ -133,3 +134,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3208021369228967644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5519041422852155211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6ac28e34fdf6b4289e20bcd4e0410f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mobility: 0
+  _speed: 3
+  _direction: 1
+  _mobilityDelay: 1
+  _minX: 0
+  _maxX: 0
