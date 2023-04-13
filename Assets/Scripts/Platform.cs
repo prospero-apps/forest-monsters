@@ -38,16 +38,16 @@ public class Platform : MonoBehaviour
         _rb2d = GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (_mobility == Mobility.Mobile)
         {
             // move right, then left, etc.
-            if (transform.position.x > _maxX && _direction > 0.0f) // turn back left
+            if (transform.position.x > _maxX && _direction > 0.0f) 
             {
                 _direction *= -1;
             }
-            if (transform.position.x < _minX && _direction < 0.0f) // turn back right
+            if (transform.position.x < _minX && _direction < 0.0f) 
             {
                 _direction *= -1;
             }
