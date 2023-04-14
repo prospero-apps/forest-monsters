@@ -7,8 +7,11 @@ public class PlayerController : MonoBehaviour
     // How fast does the player move in horizontal direction?
     [SerializeField] private float speed = 10;
 
+    // Maximum speed
+    [SerializeField] private float maxSpeed = 3;
+
     // How much can the player jump?
-    [SerializeField] private float jumpForce = 300;
+    [SerializeField] private float jumpForce = 520;
 
     private Rigidbody2D rb2d;
     private float horizontal;
@@ -55,7 +58,27 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         // Move horizontally
+        if (isGrounded)
+        {
+            // Fake friction - ease the x speed
+            Vector2 easeVelocity = rb2d.velocity;
+            easeVelocity.x *= 0.95f;
+            easeVelocity.y = rb2d.velocity.y;
+            rb2d.velocity = easeVelocity;
+        }
+
         rb2d.AddForce(Vector2.right * speed * horizontal);
+
+        // Speed limit
+        if (rb2d.velocity.x > maxSpeed)
+        {
+            rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
+        }
+
+        if (rb2d.velocity.x < -maxSpeed)
+        {
+            rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
+        }
 
         // Jump
         if (isJumping)

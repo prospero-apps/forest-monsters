@@ -219,4 +219,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpForce: 300
+  maxSpeed: 3
+  jumpForce: 520
+  isGrounded: 0
