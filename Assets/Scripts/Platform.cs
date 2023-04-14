@@ -31,6 +31,9 @@ public class Platform : MonoBehaviour
     [SerializeField] private float minX;
     [SerializeField] private float maxX;
 
+    // Whether the platform was originally mobile on enter
+    private bool kicked = false;
+
     private Rigidbody2D rb2d;
         
     void Start()
@@ -53,6 +56,63 @@ public class Platform : MonoBehaviour
             }
 
             transform.Translate(speed * Time.deltaTime * direction, 0, 0);
+        }
+    }
+
+    // If the Player lands on a platform...
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.collider.CompareTag("Player"))
+        {
+            // They become the platform's child.
+            col.gameObject.transform.parent = transform;
+
+            // If the platform should start moving, let's make sure the Player hit it from above.
+            if (mobility == Mobility.MobileOnEnter && col.gameObject.transform.position.y > transform.position.y)
+            {
+                // If so, kick the platform so that it starts moving.
+                StartCoroutine(Kick(true));
+            }
+        }
+    }
+
+    // If the Player leaves the platform...
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.collider.CompareTag("Player"))
+        {
+            if (col.gameObject.transform.IsChildOf(transform))
+            {
+                // The Player should no longer be the platform's child.
+                col.gameObject.transform.parent = null;
+            }
+
+            // If the Player leaves a MobileOnEnter platform, which is now mobile and kicked...
+            if (mobility == Mobility.Mobile && kicked)
+            {
+                // The platform should stop moving.
+                StartCoroutine(Kick(false));
+            }
+        }
+    }
+
+    // The couroutine to handle the platform's movement
+    IEnumerator Kick(bool intoMobile)
+    {
+        // The platform was kicked, so let's make it mobile.
+        if (intoMobile)
+        {
+            // The platform should start moving after a while, not right away.
+            yield return new WaitForSeconds(mobilityDelay);
+            
+            mobility = Mobility.Mobile;
+            kicked = true;
+        }
+        else
+        {
+            // The Player left the platform, so let it stop right away.
+            mobility = Mobility.MobileOnEnter;
+            kicked = false;
         }
     }
 }
