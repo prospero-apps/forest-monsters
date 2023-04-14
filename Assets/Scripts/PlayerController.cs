@@ -12,7 +12,16 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb2d;
     private float horizontal;
-    private bool jumping;
+    private bool isJumping;
+
+    // Is the player standing on a platform?
+    public bool isGrounded;
+
+    // Can the player double-jump?
+    private bool canDoubleJump;
+
+    // How many times the second part of a double jump is to be weaker than the first
+    private float doubleJumpReducer = 1.75f;
 
     void Start()
     {
@@ -39,7 +48,7 @@ public class PlayerController : MonoBehaviour
         // Check if the player is jumping
         if (Input.GetButtonDown("Jump"))
         {
-            jumping = true;
+            isJumping = true;
         }        
     }
 
@@ -49,10 +58,23 @@ public class PlayerController : MonoBehaviour
         rb2d.AddForce(Vector2.right * speed * horizontal);
 
         // Jump
-        if (jumping)
+        if (isJumping)
         {
-            rb2d.AddForce(Vector2.up * jumpForce);
-            jumping = false;
+            if (isGrounded)
+            {
+                rb2d.AddForce(Vector2.up * jumpForce);
+                canDoubleJump = true;
+            }
+            else
+            {
+                if (canDoubleJump)
+                {
+                    canDoubleJump = false;
+                    rb2d.AddForce(Vector2.up * jumpForce / doubleJumpReducer);
+                }
+            }
+            
+            isJumping = false;
         }
     }
 }
