@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -99,5 +100,11 @@ public class PlayerController : MonoBehaviour
             
             isJumping = false;
         }
+    }
+
+    // The player dies and the scene is reloaded.
+    public void Die()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
