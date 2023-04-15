@@ -14,6 +14,17 @@ public class PlayerController : MonoBehaviour
     // How much can the player jump?
     [SerializeField] private float jumpForce = 520;
 
+    // Current and maximum health
+    private int currentHealth;
+    [SerializeField] private int maxHealth;
+
+    // Current and maximum ammo
+    private int currentAmmo;
+    [SerializeField] private int maxAmmo;
+
+    // Is the Player invisible?
+    [SerializeField] bool isInvisible = false;
+
     private Rigidbody2D rb2d;
     private float horizontal;
     private bool isJumping;
@@ -26,6 +37,16 @@ public class PlayerController : MonoBehaviour
 
     // How many times the second part of a double jump is to be weaker than the first
     private float doubleJumpReducer = 1.75f;
+
+    // Is the Player slowed down after drinking poison or powered up after drinking a power drink?
+    private bool isSlowedDown = false;
+    private bool isPoweredUp = false;
+
+    // Is the Player protected by a shield?
+    private bool isProtectedByShield = false;
+
+    // Has the Player found the key?
+    private bool hasKey = false;
 
     void Start()
     {
@@ -106,5 +127,85 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // What happens if the Player bumps into something?
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        // If they bump into ammo...
+        if (col.CompareTag("Ammo"))
+        {
+            // Their ammo is full again.
+            currentAmmo = maxAmmo;
+
+            Destroy(col.gameObject);
+        }
+
+        // If they bump into a crystal ball...
+        if (col.CompareTag("Crystal Ball"))
+        {
+            // TODO: They will be able to see the sorcerer.
+            
+            Destroy(col.gameObject);
+        }
+
+        // If they bump into a first aid kit...
+        if (col.CompareTag("First Aid Kit"))
+        {
+            // Their health is full again.
+            currentHealth = maxHealth;
+
+            Destroy(col.gameObject);
+        }
+
+        // If they bump into an invisibility cloak...
+        if (col.CompareTag("Invisibility Cloak"))
+        {
+            // They become invisible.
+            isInvisible = true;
+
+            Destroy(col.gameObject);
+        }
+
+        // If they bump into poison...
+        if (col.CompareTag("Poison"))
+        {
+            // They are slowed down.
+            isSlowedDown = true;
+
+            Destroy(col.gameObject);            
+        }
+
+        // If they bump into a power drink...
+        if (col.CompareTag("Power Drink"))
+        {
+            // They are powered up
+            isPoweredUp = true;
+
+            Destroy(col.gameObject);            
+        }
+
+        // If they bump into a shield...
+        if (col.CompareTag("Shield"))
+        {
+            // They are protected by the shield.
+            isProtectedByShield = true;
+
+            // The shield becomes a child of the Player and is attached to them.
+            col.gameObject.transform.parent = transform;
+            Vector3 offsetPosition = transform.position + new Vector3(0, 0.8f, 0);
+            col.gameObject.transform.position = offsetPosition;
+        }
+
+        // If they bump into a key...
+        if (col.CompareTag("Key"))
+        {
+            // They collect the key and become its parent. The key is attached to the Player.
+            hasKey = true;
+
+            col.gameObject.transform.parent = transform;
+            Vector3 offsetPosition = transform.position + new Vector3(0, 0.8f, 0);
+            col.gameObject.transform.position = offsetPosition;            
+        }
     }
 }
