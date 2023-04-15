@@ -5,6 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platform
+  - Ammo
+  - Bomb
+  - Crystal Ball
+  - First Aid Kit
+  - Invisibility Cloak
+  - Poison
+  - Power Drink
+  - Shield
+  - Key
+  - Door
   layers:
   - Default
   - TransparentFX
