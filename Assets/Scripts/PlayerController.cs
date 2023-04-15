@@ -51,6 +51,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+
+        // Let's start with full health and ammo.
+        currentHealth = maxHealth;
+        currentAmmo = maxAmmo;
     }
         
     void Update()
