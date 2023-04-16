@@ -48,6 +48,24 @@ public class PlayerController : MonoBehaviour
     // Has the Player found the key?
     private bool hasKey = false;
 
+    // TIMERS
+    private float powerupTimer;
+    // How long will the Player remain powered up?
+    [SerializeField] private float powerupTime = 30;       
+
+    private float invisibleTimer;
+    // How long will the Player remain invisible?
+    [SerializeField] private float invisibleTime = 30;     
+
+    private float shieldTimer;
+    // How long will the Player be protected from bullets?
+    [SerializeField] private float shieldTime = 30;     
+
+    private float slowdownTimer;
+    // How long will the Player be slowed down after drinking poison?
+    [SerializeField] private float slowdownTime = 15;     
+
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -78,7 +96,49 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             isJumping = true;
-        }        
+        }
+
+        // Handle the timers
+        if (powerupTimer > powerupTime)
+        {
+            isPoweredUp = false;
+        }
+
+        if (isPoweredUp)
+        {
+            powerupTimer += Time.deltaTime;
+        }
+
+        if (invisibleTimer > invisibleTime)
+        {
+            isInvisible = false;
+        }
+
+        if (isInvisible)
+        {
+            invisibleTimer += Time.deltaTime;
+        }
+
+        if (shieldTimer > shieldTime)
+        {
+            isProtectedByShield = false;
+            RemoveShield();
+        }
+
+        if (isProtectedByShield)
+        {
+            shieldTimer += Time.deltaTime;
+        }
+
+        if (slowdownTimer > slowdownTime)
+        {
+            isSlowedDown = false;
+        }
+
+        if (isSlowedDown)
+        {
+            slowdownTimer += Time.deltaTime;
+        }
     }
 
     void FixedUpdate()
@@ -93,8 +153,16 @@ public class PlayerController : MonoBehaviour
             rb2d.velocity = easeVelocity;
         }
 
-        rb2d.AddForce(Vector2.right * speed * horizontal);
-
+        // Move at half the speed if Player is slowed down or at full speed otherwise
+        if (isSlowedDown)
+        {
+            rb2d.AddForce(Vector2.right * speed / 2 * horizontal);
+        }
+        else
+        {
+            rb2d.AddForce(Vector2.right * speed * horizontal);
+        }
+        
         // Speed limit
         if (rb2d.velocity.x > maxSpeed)
         {
@@ -131,6 +199,19 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // Remove the shield when the time the Player is protected by it is up
+    private void RemoveShield()
+    {
+        // If the shield is a child of the Player...
+        if (gameObject.transform.Find("Shield") != null)
+        {
+            // Find it and remove it.
+            GameObject shield = GameObject.FindGameObjectWithTag("Shield");
+            Destroy(shield);
+            isProtectedByShield = false;
+        }
     }
 
     // What happens if the Player bumps into something?
