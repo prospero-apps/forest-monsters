@@ -15,6 +15,7 @@ TagManager:
   - Shield
   - Key
   - Door
+  - Monster
   layers:
   - Default
   - TransparentFX
