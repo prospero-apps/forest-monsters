@@ -368,6 +368,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1897261235}
     m_Modifications:
+    - target: {fileID: -7374498464583368552, guid: c1259bebdce68fb4eb04c5d4a8cfc2d1, type: 3}
+      propertyPath: isShooter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7374498464583368552, guid: c1259bebdce68fb4eb04c5d4a8cfc2d1, type: 3}
+      propertyPath: maxHealth
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4922328754632706612, guid: c1259bebdce68fb4eb04c5d4a8cfc2d1, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -773,6 +781,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 417642354}
     m_Modifications:
+    - target: {fileID: -2690495172984059900, guid: 9549da2a6b27b90468968a950e73edd2, type: 3}
+      propertyPath: mobile
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2690495172984059900, guid: 9549da2a6b27b90468968a950e73edd2, type: 3}
+      propertyPath: direction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2690495172984059900, guid: 9549da2a6b27b90468968a950e73edd2, type: 3}
+      propertyPath: isShooter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2690495172984059900, guid: 9549da2a6b27b90468968a950e73edd2, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6372965770691443145, guid: 9549da2a6b27b90468968a950e73edd2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -892,6 +916,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 949805856}
     m_Modifications:
+    - target: {fileID: -2322128869716018704, guid: 52813698678f61b41b9ae0a0ec08b021, type: 3}
+      propertyPath: isShooter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2322128869716018704, guid: 52813698678f61b41b9ae0a0ec08b021, type: 3}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1702311294903124421, guid: 52813698678f61b41b9ae0a0ec08b021, type: 3}
       propertyPath: m_Name
       value: Immobile Shooter Orange
@@ -1935,6 +1967,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 702627446}
     m_Modifications:
+    - target: {fileID: -7205833633289160331, guid: 81a246f0424abe642ae817373da1561f, type: 3}
+      propertyPath: speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -7205833633289160331, guid: 81a246f0424abe642ae817373da1561f, type: 3}
+      propertyPath: mobile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7205833633289160331, guid: 81a246f0424abe642ae817373da1561f, type: 3}
+      propertyPath: direction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7205833633289160331, guid: 81a246f0424abe642ae817373da1561f, type: 3}
+      propertyPath: isShooter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7205833633289160331, guid: 81a246f0424abe642ae817373da1561f, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -7205833633289160331, guid: 81a246f0424abe642ae817373da1561f, type: 3}
+      propertyPath: walkingDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5031741125392781970, guid: 81a246f0424abe642ae817373da1561f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2240,6 +2296,14 @@ PrefabInstance:
     - target: {fileID: 4625557936365756041, guid: 2338bc9773a6666469783f675139b55d, type: 3}
       propertyPath: m_Name
       value: Immobile Shooter Slim
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856669048536898417, guid: 2338bc9773a6666469783f675139b55d, type: 3}
+      propertyPath: isShooter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856669048536898417, guid: 2338bc9773a6666469783f675139b55d, type: 3}
+      propertyPath: maxHealth
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2338bc9773a6666469783f675139b55d, type: 3}

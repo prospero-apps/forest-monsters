@@ -675,6 +675,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2020400076}
     m_Modifications:
+    - target: {fileID: -6271501891182153365, guid: 09fd31a6818c8724ea5566494ab3ff80, type: 3}
+      propertyPath: speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -6271501891182153365, guid: 09fd31a6818c8724ea5566494ab3ff80, type: 3}
+      propertyPath: mobile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6271501891182153365, guid: 09fd31a6818c8724ea5566494ab3ff80, type: 3}
+      propertyPath: direction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6271501891182153365, guid: 09fd31a6818c8724ea5566494ab3ff80, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -6271501891182153365, guid: 09fd31a6818c8724ea5566494ab3ff80, type: 3}
+      propertyPath: walkingDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7897531742456053218, guid: 09fd31a6818c8724ea5566494ab3ff80, type: 3}
       propertyPath: m_Name
       value: Mobile Nonshooter 3
@@ -732,6 +752,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1063511934}
     m_Modifications:
+    - target: {fileID: 1156555928988591977, guid: cbfd1f2ed19e8bf47b235b49d40d058f, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3525867378531236895, guid: cbfd1f2ed19e8bf47b235b49d40d058f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -900,6 +924,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 405692656}
     m_Modifications:
+    - target: {fileID: 1156555928988591977, guid: cbfd1f2ed19e8bf47b235b49d40d058f, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3525867378531236895, guid: cbfd1f2ed19e8bf47b235b49d40d058f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1138,6 +1166,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1015047013}
     m_Modifications:
+    - target: {fileID: -6271501891182153365, guid: 09fd31a6818c8724ea5566494ab3ff80, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6271501891182153365, guid: 09fd31a6818c8724ea5566494ab3ff80, type: 3}
+      propertyPath: mobile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6271501891182153365, guid: 09fd31a6818c8724ea5566494ab3ff80, type: 3}
+      propertyPath: direction
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6271501891182153365, guid: 09fd31a6818c8724ea5566494ab3ff80, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -6271501891182153365, guid: 09fd31a6818c8724ea5566494ab3ff80, type: 3}
+      propertyPath: walkingDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7897531742456053218, guid: 09fd31a6818c8724ea5566494ab3ff80, type: 3}
       propertyPath: m_Name
       value: Mobile Nonshooter 1
@@ -1248,6 +1296,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Immobile Shooter Brown 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7313967699122848274, guid: e9680aff2adf684419b07bcf0f856d9a, type: 3}
+      propertyPath: isShooter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313967699122848274, guid: e9680aff2adf684419b07bcf0f856d9a, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9680aff2adf684419b07bcf0f856d9a, type: 3}
 --- !u!1001 &839013674
@@ -1257,6 +1313,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 736335525}
     m_Modifications:
+    - target: {fileID: -6271501891182153365, guid: 09fd31a6818c8724ea5566494ab3ff80, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6271501891182153365, guid: 09fd31a6818c8724ea5566494ab3ff80, type: 3}
+      propertyPath: mobile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6271501891182153365, guid: 09fd31a6818c8724ea5566494ab3ff80, type: 3}
+      propertyPath: direction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6271501891182153365, guid: 09fd31a6818c8724ea5566494ab3ff80, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7897531742456053218, guid: 09fd31a6818c8724ea5566494ab3ff80, type: 3}
       propertyPath: m_Name
       value: Mobile Nonshooter 2
@@ -1562,6 +1634,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1509237680}
     m_Modifications:
+    - target: {fileID: 1156555928988591977, guid: cbfd1f2ed19e8bf47b235b49d40d058f, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3525867378531236895, guid: cbfd1f2ed19e8bf47b235b49d40d058f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1681,6 +1757,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 949805856}
     m_Modifications:
+    - target: {fileID: 1156555928988591977, guid: cbfd1f2ed19e8bf47b235b49d40d058f, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3525867378531236895, guid: cbfd1f2ed19e8bf47b235b49d40d058f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1785,6 +1865,18 @@ PrefabInstance:
     - target: {fileID: 3182467821676328203, guid: e9680aff2adf684419b07bcf0f856d9a, type: 3}
       propertyPath: m_Name
       value: Immobile Shooter Brown 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313967699122848274, guid: e9680aff2adf684419b07bcf0f856d9a, type: 3}
+      propertyPath: direction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313967699122848274, guid: e9680aff2adf684419b07bcf0f856d9a, type: 3}
+      propertyPath: isShooter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313967699122848274, guid: e9680aff2adf684419b07bcf0f856d9a, type: 3}
+      propertyPath: maxHealth
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9680aff2adf684419b07bcf0f856d9a, type: 3}

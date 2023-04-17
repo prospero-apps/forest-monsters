@@ -806,6 +806,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7901012354905424399, guid: e2ccf72fb07057a49b3bf6eaba54b101, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901012354905424399, guid: e2ccf72fb07057a49b3bf6eaba54b101, type: 3}
+      propertyPath: mobile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901012354905424399, guid: e2ccf72fb07057a49b3bf6eaba54b101, type: 3}
+      propertyPath: direction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901012354905424399, guid: e2ccf72fb07057a49b3bf6eaba54b101, type: 3}
+      propertyPath: isShooter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901012354905424399, guid: e2ccf72fb07057a49b3bf6eaba54b101, type: 3}
+      propertyPath: maxHealth
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901012354905424399, guid: e2ccf72fb07057a49b3bf6eaba54b101, type: 3}
+      propertyPath: walkingDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2ccf72fb07057a49b3bf6eaba54b101, type: 3}
 --- !u!1001 &897294754
@@ -901,6 +925,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 702627446}
     m_Modifications:
+    - target: {fileID: -2690495172984059900, guid: 9549da2a6b27b90468968a950e73edd2, type: 3}
+      propertyPath: isShooter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2690495172984059900, guid: 9549da2a6b27b90468968a950e73edd2, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6372965770691443145, guid: 9549da2a6b27b90468968a950e73edd2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1207,6 +1239,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1002813999}
     m_Modifications:
+    - target: {fileID: -2322128869716018704, guid: 52813698678f61b41b9ae0a0ec08b021, type: 3}
+      propertyPath: isShooter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2322128869716018704, guid: 52813698678f61b41b9ae0a0ec08b021, type: 3}
+      propertyPath: maxHealth
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1655351824874278533, guid: 52813698678f61b41b9ae0a0ec08b021, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -1521,6 +1561,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 949805856}
     m_Modifications:
+    - target: {fileID: -5630382615456138729, guid: aaf75b9ab882bde419fc215ff9a11e17, type: 3}
+      propertyPath: speed
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5630382615456138729, guid: aaf75b9ab882bde419fc215ff9a11e17, type: 3}
+      propertyPath: mobile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5630382615456138729, guid: aaf75b9ab882bde419fc215ff9a11e17, type: 3}
+      propertyPath: direction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5630382615456138729, guid: aaf75b9ab882bde419fc215ff9a11e17, type: 3}
+      propertyPath: isShooter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5630382615456138729, guid: aaf75b9ab882bde419fc215ff9a11e17, type: 3}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4700695764424243860, guid: aaf75b9ab882bde419fc215ff9a11e17, type: 3}
       propertyPath: m_Name
       value: Mobile Shooter Bighead
@@ -1626,6 +1686,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Immobile Shooter Brown
       objectReference: {fileID: 0}
+    - target: {fileID: 7313967699122848274, guid: e9680aff2adf684419b07bcf0f856d9a, type: 3}
+      propertyPath: isShooter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313967699122848274, guid: e9680aff2adf684419b07bcf0f856d9a, type: 3}
+      propertyPath: maxHealth
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9680aff2adf684419b07bcf0f856d9a, type: 3}
 --- !u!1001 &1835355896
@@ -1635,6 +1703,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 949805856}
     m_Modifications:
+    - target: {fileID: -7374498464583368552, guid: c1259bebdce68fb4eb04c5d4a8cfc2d1, type: 3}
+      propertyPath: isShooter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7374498464583368552, guid: c1259bebdce68fb4eb04c5d4a8cfc2d1, type: 3}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4922328754632706612, guid: c1259bebdce68fb4eb04c5d4a8cfc2d1, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1739,6 +1815,18 @@ PrefabInstance:
     - target: {fileID: 4625557936365756041, guid: 2338bc9773a6666469783f675139b55d, type: 3}
       propertyPath: m_Name
       value: Immobile Shooter Slim
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856669048536898417, guid: 2338bc9773a6666469783f675139b55d, type: 3}
+      propertyPath: mobile
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856669048536898417, guid: 2338bc9773a6666469783f675139b55d, type: 3}
+      propertyPath: isShooter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856669048536898417, guid: 2338bc9773a6666469783f675139b55d, type: 3}
+      propertyPath: maxHealth
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2338bc9773a6666469783f675139b55d, type: 3}

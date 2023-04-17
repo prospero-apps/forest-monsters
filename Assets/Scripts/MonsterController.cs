@@ -4,15 +4,113 @@ using UnityEngine;
 
 public class MonsterController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // References
+    private PlayerController player;
+    private Rigidbody2D rb2d;
+
+    // How fast does the monster move in horizontal direction?
+    [SerializeField] private float speed = 2;
+
+    // Which direction is the monster facing?
+    [SerializeField] private float direction;
+
+    // How far from their original position can the monster walk?
+    [SerializeField] private float walkingDistance = 1;
+
+    // Distance to the Player
+    private float distanceToPlayer;
+
+    // Is the monster mobile?
+    [SerializeField] private bool mobile;
+
+    // Can the monster shoot?
+    [SerializeField] private bool isShooter;
+
+    // The monster's original position
+    private Vector3 originalPosition;
+
+    // The monster's current and maximum health
+    private int currentHealth;
+    [SerializeField] private int maxHealth;
+
     void Start()
     {
-        
+        rb2d = GetComponent<Rigidbody2D>();
+
+        // Let's get reference to the Player.
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
+        // Let's remember the monster's original position.
+        originalPosition = transform.position;
+
+        // The monster starts with full health.
+        currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        // Look right or left
+        if (direction < -0.1f)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+        if (direction > 0.1f)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+
+        // Die if there's no more health left
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void FixedUpdate()
+    {
+        // If the monster is mobile...
+        if (mobile)
+        {
+            // Fake friction - ease the x speed
+            Vector2 easeVelocity = rb2d.velocity;
+            easeVelocity.x *= 0.95f;
+            easeVelocity.y = rb2d.velocity.y;
+            rb2d.velocity = easeVelocity;
+
+            // They keep moving back and forth...
+            rb2d.AddForce(Vector2.right * speed * direction);
+
+            // turning left toward their original position
+            if (transform.position.x >= originalPosition.x + walkingDistance && direction > 0.0f) 
+            {
+                direction *= -1;
+            }
+            // and back right
+            if (transform.position.x <= originalPosition.x && direction < 0.0f) 
+            {
+                direction *= -1;
+            }
+        }
+        // If the monster is immobile...
+        else
+        {
+            // We just set the direction depending on where the player is so that the monster shoots in the right direction.
+            if (player.gameObject.transform.position.x >= gameObject.transform.position.x)
+            {
+                direction = 1;
+            }
+            else
+            {
+                direction = -1;
+            }
+        }
+    }
+
+    void Die()
+    {
+        // Remove Monster
+        Destroy(gameObject);
     }
 }

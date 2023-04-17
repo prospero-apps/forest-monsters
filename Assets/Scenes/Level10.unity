@@ -276,6 +276,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7901012354905424399, guid: e2ccf72fb07057a49b3bf6eaba54b101, type: 3}
+      propertyPath: isShooter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901012354905424399, guid: e2ccf72fb07057a49b3bf6eaba54b101, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2ccf72fb07057a49b3bf6eaba54b101, type: 3}
 --- !u!1001 &109364082
@@ -1191,6 +1199,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mobile Shooter Slim
       objectReference: {fileID: 0}
+    - target: {fileID: 8247633314108305802, guid: a610dfe82a25ba4498911bba6fe86e10, type: 3}
+      propertyPath: isShooter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247633314108305802, guid: a610dfe82a25ba4498911bba6fe86e10, type: 3}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a610dfe82a25ba4498911bba6fe86e10, type: 3}
 --- !u!1001 &1414091958
@@ -1277,6 +1293,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 405692656}
     m_Modifications:
+    - target: {fileID: -5630382615456138729, guid: aaf75b9ab882bde419fc215ff9a11e17, type: 3}
+      propertyPath: isShooter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5630382615456138729, guid: aaf75b9ab882bde419fc215ff9a11e17, type: 3}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4700695764424243860, guid: aaf75b9ab882bde419fc215ff9a11e17, type: 3}
       propertyPath: m_Name
       value: Mobile Shooter Bighead
