@@ -21,7 +21,7 @@ public class MonsterController : MonoBehaviour
     private float distanceToPlayer;
 
     // Is the monster mobile?
-    [SerializeField] private bool mobile;
+    [SerializeField] private bool isMobile;
 
     // Can the monster shoot?
     [SerializeField] private bool isShooter;
@@ -71,7 +71,7 @@ public class MonsterController : MonoBehaviour
     void FixedUpdate()
     {
         // If the monster is mobile...
-        if (mobile)
+        if (isMobile)
         {
             // Fake friction - ease the x speed
             Vector2 easeVelocity = rb2d.velocity;
@@ -97,7 +97,7 @@ public class MonsterController : MonoBehaviour
         else
         {
             // We just set the direction depending on where the player is so that the monster shoots in the right direction.
-            if (player.gameObject.transform.position.x >= gameObject.transform.position.x)
+            if (player.gameObject.transform.position.x >= transform.position.x)
             {
                 direction = 1;
             }
