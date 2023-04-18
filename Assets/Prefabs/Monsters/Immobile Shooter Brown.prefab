@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2952234258011545243}
   - component: {fileID: -1449402784563230535}
   - component: {fileID: 7313967699122848274}
+  - component: {fileID: -6714030656472403427}
   m_Layer: 0
   m_Name: Immobile Shooter Brown
   m_TagString: Monster
@@ -149,6 +150,27 @@ MonoBehaviour:
   speed: 2
   direction: 0
   walkingDistance: 1
-  mobile: 0
+  isMobile: 0
   isShooter: 0
   maxHealth: 0
+--- !u!95 &-6714030656472403427
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3182467821676328203}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f780b2316c3dcbf45ba84b5ca4de538d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

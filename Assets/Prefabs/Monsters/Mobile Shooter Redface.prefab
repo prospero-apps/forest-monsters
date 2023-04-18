@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5809465790766954869}
   - component: {fileID: 5398224711059586876}
   - component: {fileID: 7901012354905424399}
+  - component: {fileID: -7720428857097824456}
   m_Layer: 0
   m_Name: Mobile Shooter Redface
   m_TagString: Monster
@@ -149,6 +150,27 @@ MonoBehaviour:
   speed: 2
   direction: 0
   walkingDistance: 1
-  mobile: 0
+  isMobile: 0
   isShooter: 0
   maxHealth: 0
+--- !u!95 &-7720428857097824456
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676242156302770636}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d2ec64c5e0be1b44b96c87fd7a1c98d3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
