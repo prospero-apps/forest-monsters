@@ -150,7 +150,7 @@ MonoBehaviour:
   speed: 2
   direction: 0
   walkingDistance: 1
-  isMobile: 0
+  isMobile: 1
   isShooter: 0
   maxHealth: 0
 --- !u!95 &-3878599434660278271

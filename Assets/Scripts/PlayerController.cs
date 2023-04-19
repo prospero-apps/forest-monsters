@@ -25,7 +25,11 @@ public class PlayerController : MonoBehaviour
     // Is the Player invisible?
     [SerializeField] bool isInvisible = false;
 
+    // References
     private Rigidbody2D rb2d;
+    private Animator anim;
+
+    // Movement
     private float horizontal;
     private bool isJumping;
 
@@ -69,6 +73,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 
         // Let's start with full health and ammo.
         currentHealth = maxHealth;
@@ -77,6 +82,11 @@ public class PlayerController : MonoBehaviour
         
     void Update()
     {
+        // Set the animator parameters
+        anim.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
+        anim.SetBool("Grounded", isGrounded);
+        anim.SetBool("Invisible", isInvisible);
+
         horizontal = Input.GetAxis("Horizontal");
 
         // Make the player always look in movement direction
