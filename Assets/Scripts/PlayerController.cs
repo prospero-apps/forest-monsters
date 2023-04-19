@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     private bool isProtectedByShield = false;
 
     // Has the Player found the key?
-    private bool hasKey = false;
+    public bool hasKey = false;
 
     // TIMERS
     private float powerupTimer;
