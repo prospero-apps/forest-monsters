@@ -29,6 +29,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2d;
     private Animator anim;
 
+    // Shooting
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject powerBullet;
+    [SerializeField] private Transform shootPoint;
+
     // Movement
     private float horizontal;
     private bool isJumping;
@@ -305,7 +310,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // The Player takes damage if they bump into a monster or get shot.
-    public void Damage(int damageAmount, float direction, bool knockback = false)
+    public void Damage(int damageAmount, float direction, bool knockback = false, float knockbackPowerX = 1000, float knockbackPowerY = 50)
     {
         currentHealth -= damageAmount;
 
@@ -314,12 +319,12 @@ public class PlayerController : MonoBehaviour
 
         if (knockback)
         {
-            StartCoroutine(Knockback(0.03f, 50, direction));
+            StartCoroutine(Knockback(0.03f, knockbackPowerX, knockbackPowerY, direction));
         }
     }
       
     // If the Player bumps into a monster or a bomb, they knock back for a very short period of time.
-    public IEnumerator Knockback(float knockDuration, float knockbackPower, float knockbackDirection)
+    public IEnumerator Knockback(float knockDuration, float knockbackPowerX, float knockbackPowerY, float knockbackDirection)
     {
         float timer = 0;
 
@@ -327,7 +332,7 @@ public class PlayerController : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            rb2d.AddForce(new Vector3(knockbackDirection * 1000, transform.position.y + knockbackPower,
+            rb2d.AddForce(new Vector3(knockbackDirection * knockbackPowerX, transform.position.y + knockbackPowerY,
                 transform.position.z));
         }
 

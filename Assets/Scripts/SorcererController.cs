@@ -9,6 +9,10 @@ public class SorcererController : MonoBehaviour
     private PlayerController player;
     private SpriteRenderer spriteRenderer;
 
+    // Shooting
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private Transform shootPoint;
+
     // Here are the platforms on which the sorcerer may spawn (on a different random one each time).
     [SerializeField] private Platform[] platforms;
         

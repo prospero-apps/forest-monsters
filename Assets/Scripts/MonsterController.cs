@@ -8,6 +8,10 @@ public class MonsterController : MonoBehaviour
     private PlayerController player;
     private Rigidbody2D rb2d;
 
+    // Shooting
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private Transform shootPoint;
+
     // How fast does the monster move in horizontal direction?
     [SerializeField] private float speed = 2;
 

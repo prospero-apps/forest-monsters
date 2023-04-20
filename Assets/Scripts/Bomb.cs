@@ -40,6 +40,6 @@ public class Bomb : MonoBehaviour
         float directionToPlayer = Mathf.Sign(player.transform.position.x - transform.position.x);
 
         // Harm the Player
-        player.Damage(1, directionToPlayer, true);
+        player.Damage(1, directionToPlayer, true, 1000, 20);
     }
 }
