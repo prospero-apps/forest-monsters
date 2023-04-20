@@ -108,6 +108,18 @@ public class MonsterController : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        // If a moster collides with the Player, the latter should take damage.
+        if (col.CompareTag("Player"))
+        {
+            // Find direction to Player (1 or -1 depending on where the Player is relative to the monster). 
+            float directionToPlayer = Mathf.Sign(player.transform.position.x - transform.position.x);
+
+            player.Damage(1, directionToPlayer, true);
+        }
+    }
+
     void Die()
     {
         // Remove Monster

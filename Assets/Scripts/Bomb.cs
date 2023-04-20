@@ -7,10 +7,14 @@ public class Bomb : MonoBehaviour
     // References
     private PlayerController player;
     private Animator anim;
-        
-    void Start()
+
+    void Awake()
     {
         anim = GetComponent<Animator>();
+    }
+
+    void Start()
+    {        
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
             
@@ -32,6 +36,10 @@ public class Bomb : MonoBehaviour
 
         Destroy(gameObject);
 
-        // TODO: Harm the Player
+        // Find direction to Player (1 or -1 depending on where the Player is relative to the bomb).
+        float directionToPlayer = Mathf.Sign(player.transform.position.x - transform.position.x);
+
+        // Harm the Player
+        player.Damage(1, directionToPlayer, true);
     }
 }

@@ -17,11 +17,15 @@ public class Door : MonoBehaviour
     // References
     private PlayerController player;
     private Animator anim;
-        
+
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        anim = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();        
         anim.enabled = false;
     }
 

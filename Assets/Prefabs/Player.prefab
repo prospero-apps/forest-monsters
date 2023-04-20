@@ -226,6 +226,7 @@ MonoBehaviour:
   maxAmmo: 0
   isInvisible: 0
   isGrounded: 0
+  hasKey: 0
   powerupTime: 30
   invisibleTime: 30
   shieldTime: 30

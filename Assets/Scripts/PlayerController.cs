@@ -205,25 +205,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // The player dies and the scene is reloaded.
-    public void Die()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    // Remove the shield when the time the Player is protected by it is up
-    private void RemoveShield()
-    {
-        // If the shield is a child of the Player...
-        if (gameObject.transform.Find("Shield") != null)
-        {
-            // Find it and remove it.
-            GameObject shield = GameObject.FindGameObjectWithTag("Shield");
-            Destroy(shield);
-            isProtectedByShield = false;
-        }
-    }
-
     // What happens if the Player bumps into something?
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -240,7 +221,7 @@ public class PlayerController : MonoBehaviour
         if (col.CompareTag("Crystal Ball"))
         {
             // TODO: They will be able to see the sorcerer.
-            
+
             Destroy(col.gameObject);
         }
 
@@ -268,7 +249,7 @@ public class PlayerController : MonoBehaviour
             // They are slowed down.
             isSlowedDown = true;
 
-            Destroy(col.gameObject);            
+            Destroy(col.gameObject);
         }
 
         // If they bump into a power drink...
@@ -277,7 +258,7 @@ public class PlayerController : MonoBehaviour
             // They are powered up
             isPoweredUp = true;
 
-            Destroy(col.gameObject);            
+            Destroy(col.gameObject);
         }
 
         // If they bump into a shield...
@@ -300,7 +281,56 @@ public class PlayerController : MonoBehaviour
 
             col.gameObject.transform.parent = transform;
             Vector3 offsetPosition = transform.position + new Vector3(0, 0.8f, 0);
-            col.gameObject.transform.position = offsetPosition;            
+            col.gameObject.transform.position = offsetPosition;
         }
+    }
+
+    // The player dies and the scene is reloaded.
+    public void Die()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // Remove the shield when the time the Player is protected by it is up
+    private void RemoveShield()
+    {
+        // If the shield is a child of the Player...
+        if (gameObject.transform.Find("Shield") != null)
+        {
+            // Find it and remove it.
+            GameObject shield = GameObject.FindGameObjectWithTag("Shield");
+            Destroy(shield);
+            isProtectedByShield = false;
+        }
+    }
+
+    // The Player takes damage if they bump into a monster or get shot.
+    public void Damage(int damageAmount, float direction, bool knockback = false)
+    {
+        currentHealth -= damageAmount;
+
+        // The Player should flash briefly to show us something bad has happened.
+        anim.Play("Player_Flashing");
+
+        if (knockback)
+        {
+            StartCoroutine(Knockback(0.03f, 50, direction));
+        }
+    }
+      
+    // If the Player bumps into a monster or a bomb, they knock back for a very short period of time.
+    public IEnumerator Knockback(float knockDuration, float knockbackPower, float knockbackDirection)
+    {
+        float timer = 0;
+
+        while (knockDuration > timer)
+        {
+            timer += Time.deltaTime;
+
+            rb2d.AddForce(new Vector3(knockbackDirection * 1000, transform.position.y + knockbackPower,
+                transform.position.z));
+        }
+
+        yield return 0;
     }
 }

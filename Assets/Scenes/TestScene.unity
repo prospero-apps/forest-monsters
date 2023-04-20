@@ -1579,6 +1579,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 949805856}
     m_Modifications:
+    - target: {fileID: 2478014076339634971, guid: 5f93f1c9066a7934db81f13d94b0b45b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4243682948768192005, guid: 5f93f1c9066a7934db81f13d94b0b45b, type: 3}
       propertyPath: m_Name
       value: Shield
