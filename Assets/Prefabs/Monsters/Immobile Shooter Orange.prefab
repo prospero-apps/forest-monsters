@@ -150,6 +150,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 5348844371619882616, guid: a5e1f39f304988d458efa004673d33a2, type: 3}
   shootPoint: {fileID: 8383357066287276340}
+  shootInterval: 1.75
+  shootDistance: 8
   speed: 2
   direction: 0
   walkingDistance: 1

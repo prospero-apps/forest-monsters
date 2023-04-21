@@ -147,8 +147,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5380aac44df432b44b4b79ee3ccab70f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
-  shootPoint: {fileID: 0}
+  bullet: {fileID: 5348844371619882616, guid: a5e1f39f304988d458efa004673d33a2, type: 3}
+  shootPoint: {fileID: 3525867378531236895}
+  shootInterval: 1
+  shootDistance: 10
   speed: 2
   direction: 0
   walkingDistance: 1

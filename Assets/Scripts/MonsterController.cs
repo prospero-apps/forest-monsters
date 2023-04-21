@@ -13,6 +13,12 @@ public class MonsterController : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform shootPoint;
 
+    // How often should a monster shoot?
+    [SerializeField] private float shootInterval;
+
+    // Min distance from player at which the monster starts shooting
+    [SerializeField] private float shootDistance;
+
     // How fast does the monster move in horizontal direction?
     [SerializeField] private float speed = 2;
 
@@ -38,6 +44,9 @@ public class MonsterController : MonoBehaviour
     private int currentHealth;
     [SerializeField] private int maxHealth;
 
+    // Bullet timer
+    private float bulletTimer;
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -51,6 +60,8 @@ public class MonsterController : MonoBehaviour
 
         // The monster starts with full health.
         currentHealth = maxHealth;
+
+        bulletTimer = 0;
     }
 
     
@@ -72,6 +83,24 @@ public class MonsterController : MonoBehaviour
         {
             Die();
         }
+
+        // Check whether you can shoot and do so if possible
+        if (isShooter && !player.isInvisible)
+        {
+            // Check if the Player is within shooting distance 
+            distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+            if (distanceToPlayer <= shootDistance)
+            {
+                // Update the bullet timer and check whether the shoot interval is over
+                bulletTimer += Time.deltaTime;
+
+                if (bulletTimer >= shootInterval)
+                {
+                    Shoot();
+                }
+            }
+        }        
     }
 
     void FixedUpdate()
@@ -98,6 +127,7 @@ public class MonsterController : MonoBehaviour
             {
                 direction *= -1;
             }
+
         }
         // If the monster is immobile...
         else
@@ -149,5 +179,18 @@ public class MonsterController : MonoBehaviour
     {
         // Remove Monster
         Destroy(gameObject);
+    }
+
+    void Shoot()
+    {
+        Vector2 shootDirection = new Vector2(direction, 0);
+        shootDirection.Normalize();
+
+        GameObject bulletInstance = Instantiate(bullet, shootPoint.transform.position, Quaternion.identity);
+
+        Missile missile = bulletInstance.GetComponent<Missile>();
+        missile.Launch(shootDirection);
+
+        bulletTimer = 0;
     }
 }

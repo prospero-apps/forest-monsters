@@ -223,13 +223,15 @@ MonoBehaviour:
   speed: 10
   maxSpeed: 3
   jumpForce: 520
-  maxHealth: 0
+  maxHealth: 5
   maxAmmo: 100
   isInvisible: 0
   bullet: {fileID: 343921808768974307, guid: deffcb4e91dac974094a556e0a88f8e5, type: 3}
   powerBullet: {fileID: 3043504723075177006, guid: 965f85d22f119364783399360b7c54bd, type: 3}
   shootPoint: {fileID: 721177914055086495}
   isGrounded: 0
+  isPoweredUp: 0
+  isProtectedByShield: 0
   hasKey: 0
   powerupTime: 30
   invisibleTime: 30

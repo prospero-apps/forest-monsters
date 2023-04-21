@@ -261,6 +261,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1968847381}
     m_Modifications:
     - target: {fileID: -7205833633289160331, guid: 81a246f0424abe642ae817373da1561f, type: 3}
+      propertyPath: isMobile
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7205833633289160331, guid: 81a246f0424abe642ae817373da1561f, type: 3}
       propertyPath: isShooter
       value: 1
       objectReference: {fileID: 0}
@@ -1424,6 +1428,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1968847381}
     m_Modifications:
     - target: {fileID: -5630382615456138729, guid: aaf75b9ab882bde419fc215ff9a11e17, type: 3}
+      propertyPath: isMobile
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5630382615456138729, guid: aaf75b9ab882bde419fc215ff9a11e17, type: 3}
       propertyPath: isShooter
       value: 1
       objectReference: {fileID: 0}
@@ -1592,6 +1600,10 @@ PrefabInstance:
     - target: {fileID: 6340633427755796624, guid: a610dfe82a25ba4498911bba6fe86e10, type: 3}
       propertyPath: m_Name
       value: Mobile Shooter Slim
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247633314108305802, guid: a610dfe82a25ba4498911bba6fe86e10, type: 3}
+      propertyPath: isMobile
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8247633314108305802, guid: a610dfe82a25ba4498911bba6fe86e10, type: 3}
       propertyPath: isShooter
@@ -2183,6 +2195,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7527770428724443614, guid: e2ccf72fb07057a49b3bf6eaba54b101, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901012354905424399, guid: e2ccf72fb07057a49b3bf6eaba54b101, type: 3}
+      propertyPath: isMobile
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7901012354905424399, guid: e2ccf72fb07057a49b3bf6eaba54b101, type: 3}

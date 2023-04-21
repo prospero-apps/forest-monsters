@@ -14,6 +14,9 @@ public class SorcererController : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform shootPoint;
 
+    // How often should a monster shoot?
+    private float shootInterval = 1;    
+
     // Here are the platforms on which the sorcerer may spawn (on a different random one each time).
     [SerializeField] private Platform[] platforms;
         
@@ -25,6 +28,9 @@ public class SorcererController : MonoBehaviour
             
     // The sorcerer's current and maximum health
     private int currentHealth;
+
+    // Bullet timer
+    private float bulletTimer;
 
     void Start()
     {
@@ -44,6 +50,8 @@ public class SorcererController : MonoBehaviour
 
         // The sorcerer should start invisible, but still dangerous.
         //MakeInvisible();
+
+        bulletTimer = 0;
     }
 
 
@@ -64,6 +72,14 @@ public class SorcererController : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+        }
+
+        // Update the bullet timer and shoot if possible
+        bulletTimer += Time.deltaTime;
+
+        if (bulletTimer >= shootInterval)
+        {
+            Shoot();
         }
     }
 
@@ -133,5 +149,18 @@ public class SorcererController : MonoBehaviour
     {
         // Remove Sorcerer
         Destroy(gameObject);
-    }    
+    }
+
+    void Shoot()
+    {
+        Vector2 shootDirection = new Vector2(direction, 0);
+        shootDirection.Normalize();
+
+        GameObject bulletInstance = Instantiate(bullet, shootPoint.transform.position, Quaternion.identity);
+
+        Missile missile = bulletInstance.GetComponent<Missile>();
+        missile.Launch(shootDirection);
+
+        bulletTimer = 0;
+    }
 }

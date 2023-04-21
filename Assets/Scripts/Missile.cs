@@ -22,12 +22,7 @@ public class Missile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    //void OnTriggerEnter2D(Collider2D col)
-    //{
-    //    //Destroy(gameObject);
-    //}
+    }    
 
     public void Launch(Vector2 direction)
     {

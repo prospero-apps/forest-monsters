@@ -19,14 +19,14 @@ public class PlayerController : MonoBehaviour
 
     // Current and maximum health
     private int currentHealth;
-    [SerializeField] private int maxHealth;
+    [SerializeField] private int maxHealth = 5;
 
     // Current and maximum ammo
     private int currentAmmo;
     [SerializeField] private int maxAmmo;
 
     // Is the Player invisible?
-    [SerializeField] bool isInvisible = false;
+    public bool isInvisible = false;
 
     // References
     private Rigidbody2D rb2d;
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool isPoweredUp = false;
 
     // Is the Player protected by a shield?
-    private bool isProtectedByShield = false;
+    public bool isProtectedByShield = false;
 
     // Has the Player found the key?
     public bool hasKey = false;
@@ -169,6 +169,12 @@ public class PlayerController : MonoBehaviour
         if (isSlowedDown)
         {
             slowdownTimer += Time.deltaTime;
+        }
+
+        // Die if there's no more health left
+        if (currentHealth <= 0)
+        {
+            //Die();
         }
     }
 
@@ -308,7 +314,14 @@ public class PlayerController : MonoBehaviour
         // If they get shot...
         if (col.CompareTag("MonsterMissile") || col.CompareTag("SorcererMissile"))
         {
+            Destroy(col.gameObject);
 
+            if (!isProtectedByShield)
+            {
+                currentHealth--;
+                // The monster should flash briefly to signal it's been hit.
+                anim.Play("Player_Flashing");
+            }             
         }
     }
 
