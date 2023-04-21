@@ -8,6 +8,7 @@ public class SorcererController : MonoBehaviour
     // References
     private PlayerController player;
     private SpriteRenderer spriteRenderer;
+    private Animator anim;
 
     // Shooting
     [SerializeField] private GameObject bullet;
@@ -27,6 +28,8 @@ public class SorcererController : MonoBehaviour
 
     void Start()
     {
+        anim = GetComponent<Animator>();
+
         // Let's get reference to the Player.
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
@@ -93,6 +96,9 @@ public class SorcererController : MonoBehaviour
         {
             Destroy(col.gameObject);
             currentHealth--;
+
+            // The monster should flash briefly to signal it's been hit.
+            anim.Play("Flash");
         }
     }
 
