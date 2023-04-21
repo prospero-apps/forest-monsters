@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5380aac44df432b44b4b79ee3ccab70f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 0}
+  shootPoint: {fileID: 0}
   speed: 2
   direction: 0
   walkingDistance: 1

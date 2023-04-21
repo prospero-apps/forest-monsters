@@ -77,6 +77,25 @@ public class SorcererController : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        // If the Sorcerer collides with the Player, the latter should take damage.
+        if (col.CompareTag("Player"))
+        {
+            // Find direction to Player (1 or -1 depending on where the Player is relative to the monster). 
+            float directionToPlayer = Mathf.Sign(player.transform.position.x - transform.position.x);
+
+            player.Damage(4, directionToPlayer, true);
+        }
+
+        // If the Sorcerer gets shot...
+        if (col.CompareTag("PlayerMissile"))
+        {
+            Destroy(col.gameObject);
+            currentHealth--;
+        }
+    }
+
     // Spawn on a random platform.
     void Spawn()
     {

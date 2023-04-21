@@ -122,6 +122,13 @@ public class MonsterController : MonoBehaviour
 
             player.Damage(1, directionToPlayer, true);
         }
+
+        // If a monster gets shot...
+        if (col.CompareTag("PlayerMissile"))
+        {
+            Destroy(col.gameObject);
+            currentHealth--;
+        }
     }
 
     void Die()

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2676158349860700275}
   m_Layer: 0
   m_Name: SorcererBullet
-  m_TagString: Untagged
+  m_TagString: SorcererMissile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aef3b513fe87a4488a8fd3ec35758ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  force: 10
 --- !u!61 &4960235869679934552
 BoxCollider2D:
   m_ObjectHideFlags: 0

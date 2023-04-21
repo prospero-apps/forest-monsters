@@ -11,8 +11,11 @@ public class PlayerController : MonoBehaviour
     // Maximum speed
     [SerializeField] private float maxSpeed = 3;
 
-    // How much can the player jump?
+    // How much can the Player jump?
     [SerializeField] private float jumpForce = 520;
+
+    // Which direction is the Player looking in?
+    private Vector2 lookDirection = new Vector2(1, 0);
 
     // Current and maximum health
     private int currentHealth;
@@ -99,18 +102,31 @@ public class PlayerController : MonoBehaviour
         {
             // look left
             transform.localScale = new Vector3(-1, 1, 1);
+            lookDirection.Set(-1, 0);
         }
 
         if (horizontal > 0.1f)
         {
             // look right
             transform.localScale = new Vector3(1, 1, 1);
+            lookDirection.Set(1, 0);
         }
+
+        lookDirection.Normalize();
 
         // Check if the player is jumping
         if (Input.GetButtonDown("Jump"))
         {
             isJumping = true;
+        }
+
+        // Shoot 
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (currentAmmo > 0)
+            {
+                Shoot();
+            }
         }
 
         // Handle the timers
@@ -288,6 +304,12 @@ public class PlayerController : MonoBehaviour
             Vector3 offsetPosition = transform.position + new Vector3(0, 0.8f, 0);
             col.gameObject.transform.position = offsetPosition;
         }
+
+        // If they get shot...
+        if (col.CompareTag("MonsterMissile") || col.CompareTag("SorcererMissile"))
+        {
+
+        }
     }
 
     // The player dies and the scene is reloaded.
@@ -337,5 +359,18 @@ public class PlayerController : MonoBehaviour
         }
 
         yield return 0;
+    }
+
+    // Shoot
+    public void Shoot()
+    {
+        GameObject bulletInstance = isPoweredUp ?
+            Instantiate(powerBullet, shootPoint.transform.position, Quaternion.identity) :
+            Instantiate(bullet, shootPoint.transform.position, Quaternion.identity);
+
+        Missile missile = bulletInstance.GetComponent<Missile>();
+        missile.Launch(lookDirection);
+
+        currentAmmo--;
     }
 }
