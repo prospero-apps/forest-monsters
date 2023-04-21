@@ -7,6 +7,7 @@ public class MonsterController : MonoBehaviour
     // References
     private PlayerController player;
     private Rigidbody2D rb2d;
+    private Animator anim;
 
     // Shooting
     [SerializeField] private GameObject bullet;
@@ -40,6 +41,7 @@ public class MonsterController : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 
         // Let's get reference to the Player.
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -128,6 +130,9 @@ public class MonsterController : MonoBehaviour
         {
             Destroy(col.gameObject);
             currentHealth--;
+
+            // The monster should flash briefly to signal it's been hit.
+            anim.Play("Flash");
         }
     }
 
