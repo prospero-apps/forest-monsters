@@ -134,6 +134,15 @@ public class MonsterController : MonoBehaviour
             // The monster should flash briefly to signal it's been hit.
             anim.Play("Flash");
         }
+
+        if (col.CompareTag("PlayerPowerMissile"))
+        {
+            Destroy(col.gameObject);
+            currentHealth -= 4;
+
+            // The monster should flash briefly to signal it's been hit.
+            anim.Play("Flash");
+        }
     }
 
     void Die()

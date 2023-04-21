@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
     // Is the Player slowed down after drinking poison or powered up after drinking a power drink?
     private bool isSlowedDown = false;
-    private bool isPoweredUp = false;
+    [SerializeField] private bool isPoweredUp = false;
 
     // Is the Player protected by a shield?
     private bool isProtectedByShield = false;
