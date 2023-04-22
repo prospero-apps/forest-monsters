@@ -1703,6 +1703,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6703001170104533079, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_text
+      value: Level 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8856824544491462854, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1790,6 +1794,15 @@ PrefabInstance:
     - target: {fileID: 8856824544491462858, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_Name
       value: GUI Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856824544667944845, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185287733292932566, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_text
+      value: Look at the monsters. They are everywhere. No time to blink your eyes.
+        What a gloomy place!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}

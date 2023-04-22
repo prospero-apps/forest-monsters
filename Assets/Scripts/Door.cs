@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Door : MonoBehaviour
     // References
     private PlayerController player;
     private Animator anim;
+    private GameManager gm;
 
     void Awake()
     {
@@ -25,7 +27,8 @@ public class Door : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();        
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         anim.enabled = false;
     }
 
@@ -36,6 +39,32 @@ public class Door : MonoBehaviour
         {
             // Check whether the Player is close enough for the door to open.
             RangeCheck();
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Player"))
+        { 
+            // Inform the Player they need the key.
+            if (!player.hasKey)
+            {
+                gm.doorText.gameObject.SetActive(true);
+            }
+            // Save the data and let the Player pass to the next level.
+            else if (isOpen)
+            {
+                gm.SaveData();
+                SceneManager.LoadScene(gm.levelToLoad);
+            }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.CompareTag("Player"))
+        {
+            gm.doorText.gameObject.SetActive(false);
         }
     }
 

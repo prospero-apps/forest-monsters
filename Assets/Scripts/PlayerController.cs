@@ -176,7 +176,7 @@ public class PlayerController : MonoBehaviour
         // Die if there's no more health left
         if (currentHealth <= 0)
         {
-            //Die();
+            Die();
         }
     }
 

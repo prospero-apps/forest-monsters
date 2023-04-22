@@ -1080,7 +1080,7 @@ PrefabInstance:
       objectReference: {fileID: 1342704525}
     - target: {fileID: 972456122412680127, guid: 7926a708dc5cacb4594a31fc9a0dd1ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.3580608
+      value: 3.3461857
       objectReference: {fileID: 0}
     - target: {fileID: 972456122412680127, guid: 7926a708dc5cacb4594a31fc9a0dd1ae, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1438,6 +1438,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6703001170104533079, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_text
+      value: Level 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8856824544491462854, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1525,6 +1529,16 @@ PrefabInstance:
     - target: {fileID: 8856824544491462858, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_Name
       value: GUI Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856824544667944845, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185287733292932566, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_text
+      value: Now it's getting really nasty. Everything is moving. You're getting
+        closer to the sorcerer's hiding place. He just has to do everything he can
+        to prevent you from finding him. Don't give up.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}

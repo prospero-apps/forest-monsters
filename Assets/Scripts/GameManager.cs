@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     private string currentLevel = "Level1";
    
     // Which level to load as next after passing through the door?
-    [SerializeField] private string levelToLoad;
+    public string levelToLoad;
 
     // GUI elements
     [SerializeField] private Sprite[] healthSprites;
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text ammoText;
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text highScoreText;
-    [SerializeField] private TMP_Text doorText;
+    public TMP_Text doorText;
 
     // The keys
     private static string scoreKey = "PLAYER_SCORE";
@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         LoadData();
-        doorText.text = "You need the key.";
     }
 
     void Update()
@@ -58,6 +57,12 @@ public class GameManager : MonoBehaviour
     public void SaveData()
     {
         PlayerPrefs.SetInt(scoreKey, score);
+
+        if (score > highScore)
+        {
+            highScore = score;
+        }
+
         PlayerPrefs.SetInt(highScoreKey, highScore);
         PlayerPrefs.SetString(currentLevelKey, levelToLoad);
     }
@@ -65,20 +70,20 @@ public class GameManager : MonoBehaviour
     // Load data
     public void LoadData()
     {
-        if (!PlayerPrefs.HasKey(currentLevelKey))
+        if (PlayerPrefs.HasKey(currentLevelKey))
         {
             currentLevel = PlayerPrefs.GetString(currentLevelKey);
         }
 
-        if (!PlayerPrefs.HasKey(scoreKey))
+        if (PlayerPrefs.HasKey(scoreKey))
         {
             score = PlayerPrefs.GetInt(scoreKey);
             scoreText.text = "Score: " + score;
         }
 
-        if (!PlayerPrefs.HasKey(highScoreKey))
+        if (PlayerPrefs.HasKey(highScoreKey))
         {
-            score = PlayerPrefs.GetInt(highScoreKey);
+            highScore = PlayerPrefs.GetInt(highScoreKey);
 
             if (highScore > 0)
             {

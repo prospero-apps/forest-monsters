@@ -1634,6 +1634,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4702091214533551393, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703001170104533079, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_text
+      value: Level 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856824543053947383, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856824543958811375, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856824543958811375, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -60
+      objectReference: {fileID: 0}
     - target: {fileID: 8856824544491462854, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1721,6 +1741,15 @@ PrefabInstance:
     - target: {fileID: 8856824544491462858, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_Name
       value: GUI Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856824544667944845, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185287733292932566, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_text
+      value: 'So, here you are. Entering the Enchanted Forest. It''s not that scary
+        yet. Just have a look around, find the key and enter the door to proceed. '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}

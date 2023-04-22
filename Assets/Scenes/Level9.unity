@@ -4503,6 +4503,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6703001170104533079, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_text
+      value: Level 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8856824544491462854, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4590,6 +4594,18 @@ PrefabInstance:
     - target: {fileID: 8856824544491462858, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_Name
       value: GUI Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856824544667944845, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185287733292932566, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_text
+      value: 'You''re doing really well. The sorcerer is close. Very close. He''ll
+        do everything to stop you. Looks like he already knows what you are capable
+        of. This is probably why he''s sent so many monsters to this part of the
+        forest, right in front of his hiding place. But this is not going to stop
+        you, right? '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
@@ -5603,7 +5619,7 @@ PrefabInstance:
       objectReference: {fileID: 1117539125}
     - target: {fileID: 972456122412680127, guid: 7926a708dc5cacb4594a31fc9a0dd1ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.3580608
+      value: 3.3461857
       objectReference: {fileID: 0}
     - target: {fileID: 972456122412680127, guid: 7926a708dc5cacb4594a31fc9a0dd1ae, type: 3}
       propertyPath: m_LocalPosition.y
