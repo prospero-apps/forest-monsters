@@ -18,11 +18,11 @@ public class PlayerController : MonoBehaviour
     private Vector2 lookDirection = new Vector2(1, 0);
 
     // Current and maximum health
-    private int currentHealth;
+    public int currentHealth;
     [SerializeField] private int maxHealth = 5;
 
     // Current and maximum ammo
-    private int currentAmmo;
+    public int currentAmmo;
     [SerializeField] private int maxAmmo;
 
     // Is the Player invisible?
