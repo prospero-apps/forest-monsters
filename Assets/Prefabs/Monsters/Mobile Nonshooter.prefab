@@ -156,7 +156,8 @@ MonoBehaviour:
   walkingDistance: 1
   isMobile: 1
   isShooter: 0
-  maxHealth: 0
+  maxHealth: 6
+  playerScore: 10
 --- !u!95 &-3878599434660278271
 Animator:
   serializedVersion: 5

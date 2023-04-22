@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    // References
+    private Rigidbody2D rb2d;
+    private Animator anim;
+    private GameManager gm;
+
     // How fast does the player move in horizontal direction?
     [SerializeField] private float speed = 10;
 
@@ -26,11 +31,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int maxAmmo;
 
     // Is the Player invisible?
-    public bool isInvisible = false;
-
-    // References
-    private Rigidbody2D rb2d;
-    private Animator anim;
+    public bool isInvisible = false;    
 
     // Shooting
     [SerializeField] private GameObject bullet;
@@ -82,6 +83,7 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
         // Let's start with full health and ammo.
         currentHealth = maxHealth;

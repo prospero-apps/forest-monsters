@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     // Player score
     private int score;
     private int highScore = 0;
+
+    // Current level
+    private string currentLevel = "Level1";
    
     // Which level to load as next after passing through the door?
     [SerializeField] private string levelToLoad;
@@ -27,6 +30,7 @@ public class GameManager : MonoBehaviour
     // The keys
     private static string scoreKey = "PLAYER_SCORE";
     private static string highScoreKey = "PLAYER_HIGHSCORE";
+    private static string currentLevelKey = "CURRENT_LEVEL";
 
     void Start()
     {
@@ -47,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     void OnApplicationQuit()
     {
-        SaveData();
+        //SaveData();
     }
 
     // Save data
@@ -55,11 +59,17 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetInt(scoreKey, score);
         PlayerPrefs.SetInt(highScoreKey, highScore);
+        PlayerPrefs.SetString(currentLevelKey, levelToLoad);
     }
-    
+          
     // Load data
     public void LoadData()
     {
+        if (!PlayerPrefs.HasKey(currentLevelKey))
+        {
+            currentLevel = PlayerPrefs.GetString(currentLevelKey);
+        }
+
         if (!PlayerPrefs.HasKey(scoreKey))
         {
             score = PlayerPrefs.GetInt(scoreKey);
@@ -76,4 +86,9 @@ public class GameManager : MonoBehaviour
             }
         }
     }    
+
+    public void AddScore(int amount)
+    {
+        score += amount;
+    }
 }

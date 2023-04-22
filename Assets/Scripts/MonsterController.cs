@@ -6,6 +6,7 @@ public class MonsterController : MonoBehaviour
 {
     // References
     private PlayerController player;
+    private GameManager gm;
     private Rigidbody2D rb2d;
     private Animator anim;
 
@@ -44,6 +45,9 @@ public class MonsterController : MonoBehaviour
     private int currentHealth;
     [SerializeField] private int maxHealth;
 
+    // How much can the Player score by killing this monster?
+    [SerializeField] private int playerScore = 10;
+
     // Bullet timer
     private float bulletTimer;
 
@@ -51,6 +55,7 @@ public class MonsterController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
         // Let's get reference to the Player.
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -179,6 +184,9 @@ public class MonsterController : MonoBehaviour
     {
         // Remove Monster
         Destroy(gameObject);
+
+        // Increase the Player's score
+        gm.AddScore(playerScore);
     }
 
     void Shoot()

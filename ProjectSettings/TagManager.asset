@@ -21,6 +21,7 @@ TagManager:
   - PlayerMissile
   - SorcererMissile
   - PlayerPowerMissile
+  - GameManager
   layers:
   - Default
   - TransparentFX
