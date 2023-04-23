@@ -1207,6 +1207,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 630469085}
     - target: {fileID: 1607740191864860723, guid: 7a5f39afe37629f47a5510ee1bd52a85, type: 3}
+      propertyPath: infoMenu
+      value: 
+      objectReference: {fileID: 484642667}
+    - target: {fileID: 1607740191864860723, guid: 7a5f39afe37629f47a5510ee1bd52a85, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1505427603}
+    - target: {fileID: 1607740191864860723, guid: 7a5f39afe37629f47a5510ee1bd52a85, type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 630469083}
@@ -3381,6 +3389,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6184623176269315980, guid: 954d1fc357f86814ebe23063a417d89a, type: 3}
   m_PrefabInstance: {fileID: 1342704524}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1505427603 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8856824543053947383, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+  m_PrefabInstance: {fileID: 630469080}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1531050928
 PrefabInstance:

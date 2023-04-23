@@ -185,6 +185,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7241781903016506529, guid: d0ec93711086e2a4e8b10d07c697efaa, type: 3}
   m_PrefabInstance: {fileID: 31593658}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &53707800 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8856824543053947383, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+  m_PrefabInstance: {fileID: 386430637}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &81628221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2105,6 +2110,14 @@ PrefabInstance:
       propertyPath: healthUI
       value: 
       objectReference: {fileID: 386430642}
+    - target: {fileID: 1607740191864860723, guid: 7a5f39afe37629f47a5510ee1bd52a85, type: 3}
+      propertyPath: infoMenu
+      value: 
+      objectReference: {fileID: 1266667864}
+    - target: {fileID: 1607740191864860723, guid: 7a5f39afe37629f47a5510ee1bd52a85, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 53707800}
     - target: {fileID: 1607740191864860723, guid: 7a5f39afe37629f47a5510ee1bd52a85, type: 3}
       propertyPath: scoreText
       value: 

@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text highScoreText;
     public TMP_Text doorText;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject infoMenu;
 
     // The keys
     private static string scoreKey = "PLAYER_SCORE";
@@ -38,7 +40,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        pauseMenu.SetActive(false);
         LoadData();
+        StartCoroutine(HideInfoMenu());        
     }
 
     void Update()
@@ -49,11 +53,36 @@ public class GameManager : MonoBehaviour
         // Update the Player's ammo and score in the UI
         ammoText.text = "Ammo: " + player.currentAmmo;
         scoreText.text = "Score: " + score;
+
+        // Pause or resume the game if the Pause button is pressed
+        if (Input.GetButtonDown("PauseOrResume") && !infoMenu.activeInHierarchy)
+        {
+            PauseOrResume();
+        }
     }
 
     void OnApplicationQuit()
     {
         //SaveData();
+    }
+
+    // The level info should disappear after a while
+    IEnumerator HideInfoMenu()
+    {
+        PauseGame();
+        yield return new WaitForSecondsRealtime(3);
+        infoMenu.SetActive(false);
+        ResumeGame();
+    }
+
+    void ShowPauseMenu()
+    {
+        pauseMenu.SetActive(true);
+    }
+
+    void HidePauseMenu()
+    {
+        pauseMenu.SetActive(false);
     }
 
     // Save data
@@ -112,5 +141,20 @@ public class GameManager : MonoBehaviour
     {
         isPaused = false;
         Time.timeScale = 1;
+    }
+
+    // Pause if not paused or resume if paused
+    public void PauseOrResume()
+    {
+        if (isPaused)
+        {
+            ResumeGame();
+            HidePauseMenu();
+        }
+        else
+        {
+            PauseGame();
+            ShowPauseMenu();
+        }
     }
 }
