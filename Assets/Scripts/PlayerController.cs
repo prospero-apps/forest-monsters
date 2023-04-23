@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
         // Shoot 
         if (Input.GetButtonDown("Fire1"))
         {
-            if (currentAmmo > 0)
+            if (!gm.isPaused && currentAmmo > 0)
             {
                 Shoot();
             }

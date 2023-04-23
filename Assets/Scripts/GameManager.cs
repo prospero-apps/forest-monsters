@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -36,11 +37,10 @@ public class GameManager : MonoBehaviour
     private static string scoreKey = "PLAYER_SCORE";
     private static string highScoreKey = "PLAYER_HIGHSCORE";
     private static string currentLevelKey = "CURRENT_LEVEL";
-
+    
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        pauseMenu.SetActive(false);
         LoadData();
         StartCoroutine(HideInfoMenu());        
     }
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: " + score;
 
         // Pause or resume the game if the Pause button is pressed
-        if (Input.GetButtonDown("PauseOrResume") && !infoMenu.activeInHierarchy)
+        if (Input.GetButtonDown("Pause") && !infoMenu.activeInHierarchy)
         {
             PauseOrResume();
         }
@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
     void ShowPauseMenu()
     {
         pauseMenu.SetActive(true);
+
     }
 
     void HidePauseMenu()
@@ -156,5 +157,32 @@ public class GameManager : MonoBehaviour
             PauseGame();
             ShowPauseMenu();
         }
+    }
+
+    // Pause Menu Actions    
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void MainMenu()
+    {
+        // TODO: Load Main Menu
+    }
+
+    public void NewGame()
+    {
+        score = 0;
+        currentLevel = "Level1";
+        SaveData();
+        SceneManager.LoadScene(currentLevel);
+    }
+       
+    public void Quit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+        Application.Quit();
     }
 }
