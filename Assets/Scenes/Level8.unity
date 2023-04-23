@@ -1707,6 +1707,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Level 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6829648320193096331, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: Info
+      value: 
+      objectReference: {fileID: 1660950253}
     - target: {fileID: 8856824544491462854, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1797,7 +1801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8856824544667944845, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9185287733292932566, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_text
@@ -2003,6 +2007,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2009556717989208221, guid: d63af0c4450b93b4f888df4f59670495, type: 3}
   m_PrefabInstance: {fileID: 1458740310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1660950253 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8856824544667944845, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+  m_PrefabInstance: {fileID: 1320518388}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1694041164
 PrefabInstance:

@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     // Which level to load as next after passing through the door?
     public string levelToLoad;
 
+    // Whether the game should be paused
+    public bool isPaused = false;
+
     // GUI elements
     [SerializeField] private Sprite[] healthSprites;
     [SerializeField] private Image healthUI;
@@ -95,5 +98,19 @@ public class GameManager : MonoBehaviour
     public void AddScore(int amount)
     {
         score += amount;
+    }
+
+    // Pause the game
+    public void PauseGame()
+    {
+        isPaused = true;
+        Time.timeScale = 0;
+    }
+
+    // Resume the game
+    public void ResumeGame()
+    {
+        isPaused = false;
+        Time.timeScale = 1;
     }
 }

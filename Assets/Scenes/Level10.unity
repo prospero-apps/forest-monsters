@@ -445,6 +445,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5510874390341816743, guid: 52f80ea64f11d1643ade601dbe388ba8, type: 3}
   m_PrefabInstance: {fileID: 174026538}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &264079218 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8856824544667944845, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+  m_PrefabInstance: {fileID: 520764651}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &350418639 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5384805111155233535, guid: 52f80ea64f11d1643ade601dbe388ba8, type: 3}
@@ -704,6 +709,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Level 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6829648320193096331, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: Info
+      value: 
+      objectReference: {fileID: 264079218}
     - target: {fileID: 8856824544491462854, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -794,7 +803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8856824544667944845, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9185287733292932566, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_text

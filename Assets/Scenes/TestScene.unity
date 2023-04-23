@@ -969,6 +969,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7241781903016506529, guid: d0ec93711086e2a4e8b10d07c697efaa, type: 3}
   m_PrefabInstance: {fileID: 702627445}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &750141707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8856824544667944845, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+  m_PrefabInstance: {fileID: 8856824543233997807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &833918274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2119,7 +2124,7 @@ PrefabInstance:
       objectReference: {fileID: 6184623175979021264}
     - target: {fileID: 972456122412680127, guid: 7926a708dc5cacb4594a31fc9a0dd1ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.604973
+      value: 8.616848
       objectReference: {fileID: 0}
     - target: {fileID: 972456122412680127, guid: 7926a708dc5cacb4594a31fc9a0dd1ae, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2942,6 +2947,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Level 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6829648320193096331, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: Info
+      value: 
+      objectReference: {fileID: 750141707}
     - target: {fileID: 8856824543958811374, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_text
       value: You need the key to open the door!
@@ -3092,7 +3101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8856824544667944845, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9185287733292932566, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_text
