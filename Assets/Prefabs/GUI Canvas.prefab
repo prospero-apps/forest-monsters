@@ -257,8 +257,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1607740191864860723, guid: 7a5f39afe37629f47a5510ee1bd52a85, type: 3}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 5088871412799363964}
+        m_TargetAssemblyTypeName: PauseUI, Assembly-CSharp
         m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
@@ -661,8 +661,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1607740191864860723, guid: 7a5f39afe37629f47a5510ee1bd52a85, type: 3}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 5088871412799363964}
+        m_TargetAssemblyTypeName: PauseUI, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -1065,8 +1065,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1607740191864860723, guid: 7a5f39afe37629f47a5510ee1bd52a85, type: 3}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 5088871412799363964}
+        m_TargetAssemblyTypeName: PauseUI, Assembly-CSharp
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
@@ -1334,8 +1334,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1607740191864860723, guid: 7a5f39afe37629f47a5510ee1bd52a85, type: 3}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 5088871412799363964}
+        m_TargetAssemblyTypeName: PauseUI, Assembly-CSharp
         m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
@@ -1358,7 +1358,7 @@ GameObject:
   - component: {fileID: 1147873865526216452}
   - component: {fileID: 114926783061446527}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: GamePausedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1494,6 +1494,7 @@ GameObject:
   - component: {fileID: 8856824543053947382}
   - component: {fileID: 7625827158029867123}
   - component: {fileID: 4368049082419358970}
+  - component: {fileID: 5088871412799363964}
   m_Layer: 5
   m_Name: PauseUI
   m_TagString: PauseMenu
@@ -1564,6 +1565,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5088871412799363964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8856824543053947383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e55d94f0a7ae714d8917137fb4e7182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8856824543161554751
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,6 +2126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8856824544168733513}
+  - component: {fileID: 7305242261215391074}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -2144,6 +2158,29 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7305242261215391074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8856824544168733514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b996916d322e574eaf845e8d8e9811c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSprites:
+  - {fileID: 1304005492, guid: a4df97b2b23bfa648a9f581301fd5a89, type: 3}
+  - {fileID: 823746683, guid: a4df97b2b23bfa648a9f581301fd5a89, type: 3}
+  - {fileID: 1356273454, guid: a4df97b2b23bfa648a9f581301fd5a89, type: 3}
+  - {fileID: 979281069, guid: a4df97b2b23bfa648a9f581301fd5a89, type: 3}
+  - {fileID: -763660080, guid: a4df97b2b23bfa648a9f581301fd5a89, type: 3}
+  - {fileID: -1169075571, guid: a4df97b2b23bfa648a9f581301fd5a89, type: 3}
+  healthUI: {fileID: 8856824544262195595}
+  ammoText: {fileID: 8856824544060660935}
+  scoreText: {fileID: 8856824543760320305}
+  highScoreText: {fileID: 8856824543161554749}
 --- !u!1 &8856824544262195597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2232,6 +2269,7 @@ GameObject:
   - component: {fileID: 8856824544491462855}
   - component: {fileID: 8856824544491462856}
   - component: {fileID: 8856824544491462857}
+  - component: {fileID: 8080271658043116580}
   m_Layer: 5
   m_Name: GUI Canvas
   m_TagString: Untagged
@@ -2324,6 +2362,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8080271658043116580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8856824544491462858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 631b6f97fcf9c474984c1802fbf87670, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8856824544667944845
 GameObject:
   m_ObjectHideFlags: 0

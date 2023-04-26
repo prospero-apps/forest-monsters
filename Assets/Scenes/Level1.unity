@@ -379,6 +379,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2020400076}
     m_Modifications:
+    - target: {fileID: -6588852695953758019, guid: 7cec8de92b0f3cf45889f7c5bde967b4, type: 3}
+      propertyPath: doorText
+      value: 
+      objectReference: {fileID: 1070126971}
     - target: {fileID: 7415167444061546826, guid: 7cec8de92b0f3cf45889f7c5bde967b4, type: 3}
       propertyPath: m_Name
       value: Door
@@ -1774,6 +1778,14 @@ PrefabInstance:
       propertyPath: info
       value: 
       objectReference: {fileID: 1491754520}
+    - target: {fileID: 8080271658043116580, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: infoMenu
+      value: 
+      objectReference: {fileID: 1491754520}
+    - target: {fileID: 8080271658043116580, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1982270409}
     - target: {fileID: 8856824543053947383, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2262,7 +2274,7 @@ PrefabInstance:
       objectReference: {fileID: 750177620}
     - target: {fileID: 972456122412680127, guid: 7926a708dc5cacb4594a31fc9a0dd1ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3461857
+      value: 3.1371593
       objectReference: {fileID: 0}
     - target: {fileID: 972456122412680127, guid: 7926a708dc5cacb4594a31fc9a0dd1ae, type: 3}
       propertyPath: m_LocalPosition.y

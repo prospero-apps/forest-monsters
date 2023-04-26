@@ -517,6 +517,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1506575296}
     m_Modifications:
+    - target: {fileID: -6588852695953758019, guid: 7cec8de92b0f3cf45889f7c5bde967b4, type: 3}
+      propertyPath: doorText
+      value: 
+      objectReference: {fileID: 1320518389}
     - target: {fileID: 7415167444061546826, guid: 7cec8de92b0f3cf45889f7c5bde967b4, type: 3}
       propertyPath: m_Name
       value: Door
@@ -1792,6 +1796,14 @@ PrefabInstance:
       propertyPath: Info
       value: 
       objectReference: {fileID: 1660950253}
+    - target: {fileID: 8080271658043116580, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: infoMenu
+      value: 
+      objectReference: {fileID: 1660950253}
+    - target: {fileID: 8080271658043116580, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 437986025}
     - target: {fileID: 8856824544491462854, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_Pivot.x
       value: 0

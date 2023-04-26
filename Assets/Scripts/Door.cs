@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Door : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class Door : MonoBehaviour
     private PlayerController player;
     private Animator anim;
     private GameManager gm;
+
+    // UI
+    public TMP_Text doorText;
 
     void Awake()
     {
@@ -45,11 +49,11 @@ public class Door : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
-        { 
+        {
             // Inform the Player they need the key.
             if (!player.hasKey)
             {
-                gm.doorText.gameObject.SetActive(true);
+                doorText.gameObject.SetActive(true);
             }
             // Save the data and let the Player pass to the next level.
             else if (isOpen)
@@ -64,7 +68,7 @@ public class Door : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            gm.doorText.gameObject.SetActive(false);
+            doorText.gameObject.SetActive(false);
         }
     }
 
@@ -86,7 +90,7 @@ public class Door : MonoBehaviour
             {
                 anim.Play("Door_Closing");
                 isOpen = false;
-            }            
+            }
         }
-    }    
+    }
 }
