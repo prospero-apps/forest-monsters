@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Menus : MonoBehaviour
 {
     // References
     private GameManager gm;
+    private TextMeshProUGUI chancesInfo;
 
     // Menus
     [SerializeField] private GameObject pauseMenu;
@@ -15,6 +18,15 @@ public class Menus : MonoBehaviour
     {
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         StartCoroutine(HideInfoMenu());
+
+        // If this is Level 10, inform the Player how many attempts they still have to kill the Sorcerer.
+        if (SceneManager.GetActiveScene().name == "Level10")
+        {
+            chancesInfo = GameObject.FindGameObjectWithTag("LivesInfo").GetComponent<TextMeshProUGUI>();
+            chancesInfo.text = gm.chances == 1 ? 
+                "This is your last chance to kill the Sorcerer!" :
+                $"You have {gm.chances} chances to kill the Sorcerer.";
+        }
     }
 
     

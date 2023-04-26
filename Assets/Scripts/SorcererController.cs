@@ -9,6 +9,7 @@ public class SorcererController : MonoBehaviour
     private PlayerController player;
     private SpriteRenderer spriteRenderer;
     private Animator anim;
+    private GameManager gm;
 
     // Shooting
     [SerializeField] private GameObject bullet;
@@ -35,6 +36,7 @@ public class SorcererController : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
         // Let's get reference to the Player.
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -131,8 +133,8 @@ public class SorcererController : MonoBehaviour
         
     void CalculateHealth()
     {
-        // The sorcerer's health depends on the Player's score. Temporarily it's constant.
-        currentHealth = 20;
+        // The sorcerer's health depends on the Player's score. It's between 10 and 20.
+        currentHealth = Mathf.Clamp(20 - (gm.score / 100), 10, 20);
     }
       
     void MakeInvisible()

@@ -23,6 +23,7 @@ TagManager:
   - PlayerPowerMissile
   - GameManager
   - PauseMenu
+  - LivesInfo
   layers:
   - Default
   - TransparentFX

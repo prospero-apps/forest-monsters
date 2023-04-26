@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
     public int score;
     public int highScore = 0;
 
+    // How many times can the Player die in Level 10 before they lose the game?
+    public int chances = 0;
+    public int chancesUsed = 0;
+
     // Current level
     public string currentLevel = "Intro";
 
@@ -22,8 +26,10 @@ public class GameManager : MonoBehaviour
     private static string scoreKey = "PLAYER_SCORE";
     private static string highScoreKey = "PLAYER_HIGHSCORE";
     private static string currentLevelKey = "CURRENT_LEVEL";
+    private static string chancesKey = "PLAYER_CHANCES";
+    private static string chancesUsedKey = "PLAYER_CHANCES_USED";
 
-    void Start()
+    void Awake()
     {
         LoadData();
     }
@@ -59,6 +65,19 @@ public class GameManager : MonoBehaviour
         {
             highScore = PlayerPrefs.GetInt(highScoreKey);
         }
+
+        if (PlayerPrefs.HasKey(chancesUsedKey))
+        {
+            chancesUsed = PlayerPrefs.GetInt(chancesUsedKey);
+            chances = 1 + score / 100 - chancesUsed;
+            PlayerPrefs.SetInt(chancesKey, chances);
+        }
+    }
+        
+    public void LoseChance()
+    {
+        chancesUsed++;
+        PlayerPrefs.SetInt(chancesUsedKey, chancesUsed);
     }
 
     // Increase score
@@ -66,7 +85,7 @@ public class GameManager : MonoBehaviour
     {
         score += amount;
     }
-
+       
     // Pause the game
     public void PauseGame()
     {
@@ -88,12 +107,20 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(currentLevel);
     }
 
-    public void NewGame()
+    // Reset the game after the game is over
+    void Reset()
     {
         score = 0;
+        chancesUsed = 0;
         currentLevel = "Level1";
         PlayerPrefs.SetInt(scoreKey, score);
         PlayerPrefs.SetString(currentLevelKey, currentLevel);
+        PlayerPrefs.SetInt(chancesUsedKey, chancesUsed);
+    }
+
+    public void NewGame()
+    {
+        Reset();
         SceneManager.LoadScene(currentLevel);
     }
 
@@ -119,6 +146,12 @@ public class GameManager : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
         Application.Quit();
+    }
+
+    public void ResetAndQuit()
+    {
+        Reset();
+        Quit();
     }
 
     // Navigation to Main Menu from other scenes

@@ -76,9 +76,8 @@ public class PlayerController : MonoBehaviour
 
     private float slowdownTimer;
     // How long will the Player be slowed down after drinking poison?
-    [SerializeField] private float slowdownTime = 15;     
-
-
+    [SerializeField] private float slowdownTime = 15;
+      
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -330,7 +329,29 @@ public class PlayerController : MonoBehaviour
     // The player dies and the scene is reloaded.
     public void Die()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // If this is Level 10...
+        if (SceneManager.GetActiveScene().name == "Level10")
+        {
+            // If the Player has any chances left...
+            if (gm.chances > 1)
+            {
+                // One chance is lost...
+                gm.LoseChance();
+
+                // And the level starts again.
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+            // Otherwise the game is lost.
+            else
+            {
+                SceneManager.LoadScene("GameOverFailure");
+            }
+        }
+        // In any other level just start the level again.
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }        
     }
 
     // Remove the shield when the time the Player is protected by it is up
