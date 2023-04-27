@@ -51,7 +51,7 @@ public class SorcererController : MonoBehaviour
         CalculateHealth();
 
         // The sorcerer should start invisible, but still dangerous.
-        //MakeInvisible();
+        MakeInvisible();
 
         bulletTimer = 0;
     }
@@ -151,6 +151,9 @@ public class SorcererController : MonoBehaviour
     {
         // Remove Sorcerer
         Destroy(gameObject);
+
+        // The game is won
+        SceneManager.LoadScene("GameOverSuccess");
     }
 
     void Shoot()
