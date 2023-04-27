@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5908087912833871164}
   m_Layer: 0
   m_Name: Sorcerer
-  m_TagString: Untagged
+  m_TagString: Sorcerer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,6 +104,7 @@ MonoBehaviour:
   shootPoint: {fileID: 5157059183670904198}
   platforms: []
   direction: 0
+  shootDistance: 0
 --- !u!95 &-5501346769718903630
 Animator:
   serializedVersion: 5

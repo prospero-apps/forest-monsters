@@ -311,7 +311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8132736579936164522, guid: 84f06419b31b7114388ef7841ef5cb78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.49
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 8132736579936164522, guid: 84f06419b31b7114388ef7841ef5cb78, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2374,6 +2374,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 592144199334386312, guid: b724c0670f944e942bd1f19c02f1c991, type: 3}
+      propertyPath: shootDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 592144199334386312, guid: b724c0670f944e942bd1f19c02f1c991, type: 3}
       propertyPath: platforms.Array.size
       value: 9

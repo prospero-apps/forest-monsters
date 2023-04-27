@@ -120,7 +120,7 @@ public class MonsterController : MonoBehaviour
             rb2d.velocity = easeVelocity;
 
             // They keep moving back and forth...
-            rb2d.AddForce(Vector2.right * speed * direction);
+            rb2d.AddForce(direction * speed * Vector2.right);
 
             // turning left toward their original position
             if (transform.position.x >= originalPosition.x + walkingDistance && direction > 0.0f) 

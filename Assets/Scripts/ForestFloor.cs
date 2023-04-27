@@ -5,7 +5,6 @@ using UnityEngine;
 public class ForestFloor : MonoBehaviour
 {
     private PlayerController player;
-    private Vector3 originalPlayerPosition;
     
     void Start()
     {

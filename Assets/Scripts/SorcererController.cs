@@ -16,7 +16,7 @@ public class SorcererController : MonoBehaviour
     [SerializeField] private Transform shootPoint;
 
     // How often should a monster shoot?
-    private float shootInterval = 1;    
+    private float shootInterval = 2;    
 
     // Here are the platforms on which the sorcerer may spawn (on a different random one each time).
     [SerializeField] private Platform[] platforms;
@@ -26,7 +26,10 @@ public class SorcererController : MonoBehaviour
         
     // Distance to the Player
     private float distanceToPlayer;
-            
+
+    // Min distance from player at which the Sorcerer starts shooting
+    [SerializeField] private float shootDistance;
+
     // The sorcerer's current and maximum health
     private int currentHealth;
 
@@ -81,7 +84,12 @@ public class SorcererController : MonoBehaviour
 
         if (bulletTimer >= shootInterval)
         {
-            Shoot();
+            distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+            if (distanceToPlayer < shootDistance)
+            {
+                Shoot();
+            }            
         }
     }
 
@@ -142,7 +150,7 @@ public class SorcererController : MonoBehaviour
         spriteRenderer.enabled = false;
     }
 
-    void MakeVisible()
+    public void MakeVisible()
     {
         spriteRenderer.enabled = true;
     }

@@ -24,6 +24,7 @@ TagManager:
   - GameManager
   - PauseMenu
   - LivesInfo
+  - Sorcerer
   layers:
   - Default
   - TransparentFX

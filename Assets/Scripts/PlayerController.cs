@@ -248,7 +248,8 @@ public class PlayerController : MonoBehaviour
         // If they bump into a crystal ball...
         if (col.CompareTag("Crystal Ball"))
         {
-            // TODO: They will be able to see the sorcerer.
+            // Make the sorcerer visible.
+            GameObject.FindGameObjectWithTag("Sorcerer").GetComponent<SorcererController>().MakeVisible();
 
             Destroy(col.gameObject);
         }
