@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    // References
+    AudioSource audioSource;
+
     // Player score
     public int score;
     public int highScore = 0;
@@ -21,6 +24,9 @@ public class GameManager : MonoBehaviour
 
     // Whether the game should be paused
     public bool isPaused = false;
+
+    // Volume
+    public float volume;
         
     // The keys
     private static string scoreKey = "PLAYER_SCORE";
@@ -28,12 +34,21 @@ public class GameManager : MonoBehaviour
     private static string currentLevelKey = "CURRENT_LEVEL";
     private static string chancesKey = "PLAYER_CHANCES";
     private static string chancesUsedKey = "PLAYER_CHANCES_USED";
+    private static string volumeKey = "VOLUME";
 
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
         LoadData();
     }
-      
+
+    void OnDestroy()
+    {
+        volume = audioSource.volume;
+        PlayerPrefs.SetFloat(volumeKey, volume);
+    }       
+
     // Save data
     public void SaveData()
     {
@@ -71,6 +86,12 @@ public class GameManager : MonoBehaviour
             chancesUsed = PlayerPrefs.GetInt(chancesUsedKey);
             chances = 1 + score / 100 - chancesUsed;
             PlayerPrefs.SetInt(chancesKey, chances);
+        }
+
+        if (PlayerPrefs.HasKey(volumeKey))
+        {
+            volume = PlayerPrefs.GetFloat(volumeKey);
+            audioSource.volume = volume;
         }
     }
         

@@ -2739,6 +2739,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7943597351988083858, guid: 7a5f39afe37629f47a5510ee1bd52a85, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 05ccb546ae6bb9e44a2e5d9d363c80aa, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a5f39afe37629f47a5510ee1bd52a85, type: 3}
 --- !u!1001 &5820091070738154395
@@ -2963,6 +2967,26 @@ PrefabInstance:
     - target: {fileID: 4702091214533551393, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826406959761557881, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826406959761557881, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5994661925911732566, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5994661925911732566, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5994661925911732566, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6703001170104533079, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_text
