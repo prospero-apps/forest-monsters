@@ -2972,6 +2972,14 @@ PrefabInstance:
       propertyPath: Info
       value: 
       objectReference: {fileID: 750141707}
+    - target: {fileID: 8080271658043116580, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: infoMenu
+      value: 
+      objectReference: {fileID: 750141707}
+    - target: {fileID: 8080271658043116580, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1878885865}
     - target: {fileID: 8856824543958811374, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
       propertyPath: m_text
       value: You need the key to open the door!

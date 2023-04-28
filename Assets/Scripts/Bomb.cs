@@ -8,6 +8,9 @@ public class Bomb : MonoBehaviour
     private PlayerController player;
     private Animator anim;
 
+    // Audio clip
+    [SerializeField] private AudioClip bombClip;
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -33,13 +36,14 @@ public class Bomb : MonoBehaviour
         anim.SetBool("Awake", true);
 
         yield return new WaitForSeconds(0.3f);
-
-        Destroy(gameObject);
-
+                
         // Find direction to Player (1 or -1 depending on where the Player is relative to the bomb).
         float directionToPlayer = Mathf.Sign(player.transform.position.x - transform.position.x);
 
         // Harm the Player
-        player.Damage(1, directionToPlayer, true, 1000, 20);
+        player.Damage(2, directionToPlayer, true, 600, 20);
+
+        player.PlaySound(bombClip);
+        Destroy(gameObject);
     }
 }

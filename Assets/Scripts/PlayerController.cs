@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2d;
     private Animator anim;
     private GameManager gm;
+    private AudioSource audioSource;
 
     // How fast does the player move in horizontal direction?
     [SerializeField] private float speed = 10;
@@ -77,12 +78,21 @@ public class PlayerController : MonoBehaviour
     private float slowdownTimer;
     // How long will the Player be slowed down after drinking poison?
     [SerializeField] private float slowdownTime = 15;
-      
+
+    // Audio clips
+    [SerializeField] private AudioClip collectClip;
+    [SerializeField] private AudioClip healthClip;
+    [SerializeField] private AudioClip hitPlayerClip;
+    [SerializeField] private AudioClip shootClip;
+    [SerializeField] private AudioClip shootPoweredClip;
+
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        audioSource = gameObject.GetComponent<AudioSource>();
 
         // Let's start with full health and ammo.
         currentHealth = maxHealth;
@@ -239,6 +249,8 @@ public class PlayerController : MonoBehaviour
         // If they bump into ammo...
         if (col.CompareTag("Ammo"))
         {
+            PlaySound(collectClip);
+
             // Their ammo is full again.
             currentAmmo = maxAmmo;
 
@@ -248,6 +260,8 @@ public class PlayerController : MonoBehaviour
         // If they bump into a crystal ball...
         if (col.CompareTag("Crystal Ball"))
         {
+            PlaySound(collectClip);
+
             // Make the sorcerer visible.
             GameObject.FindGameObjectWithTag("Sorcerer").GetComponent<SorcererController>().MakeVisible();
 
@@ -257,6 +271,8 @@ public class PlayerController : MonoBehaviour
         // If they bump into a first aid kit...
         if (col.CompareTag("First Aid Kit"))
         {
+            PlaySound(healthClip);
+
             // Their health is full again.
             currentHealth = maxHealth;
 
@@ -266,6 +282,8 @@ public class PlayerController : MonoBehaviour
         // If they bump into an invisibility cloak...
         if (col.CompareTag("Invisibility Cloak"))
         {
+            PlaySound(collectClip);
+
             // They become invisible.
             isInvisible = true;
 
@@ -275,6 +293,8 @@ public class PlayerController : MonoBehaviour
         // If they bump into poison...
         if (col.CompareTag("Poison"))
         {
+            PlaySound(collectClip);
+
             // They are slowed down.
             isSlowedDown = true;
 
@@ -284,6 +304,8 @@ public class PlayerController : MonoBehaviour
         // If they bump into a power drink...
         if (col.CompareTag("Power Drink"))
         {
+            PlaySound(collectClip);
+
             // They are powered up
             isPoweredUp = true;
 
@@ -293,6 +315,8 @@ public class PlayerController : MonoBehaviour
         // If they bump into a shield...
         if (col.CompareTag("Shield"))
         {
+            PlaySound(collectClip);
+
             // They are protected by the shield.
             isProtectedByShield = true;
 
@@ -305,6 +329,8 @@ public class PlayerController : MonoBehaviour
         // If they bump into a key...
         if (col.CompareTag("Key"))
         {
+            PlaySound(collectClip);
+
             // They collect the key and become its parent. The key is attached to the Player.
             hasKey = true;
 
@@ -317,6 +343,8 @@ public class PlayerController : MonoBehaviour
         if (col.CompareTag("MonsterMissile") || col.CompareTag("SorcererMissile"))
         {
             Destroy(col.gameObject);
+
+            PlaySound(hitPlayerClip);
 
             if (!isProtectedByShield)
             {
@@ -371,10 +399,13 @@ public class PlayerController : MonoBehaviour
     // The Player takes damage if they bump into a monster or get shot.
     public void Damage(int damageAmount, float direction, bool knockback = false, float knockbackPowerX = 1000, float knockbackPowerY = 50)
     {
-        currentHealth -= damageAmount;
+        //currentHealth -= damageAmount;
+        currentHealth = Mathf.Clamp(currentHealth - damageAmount, 0, maxHealth);
 
         // The Player should flash briefly to show us something bad has happened.
         anim.Play("Player_Flashing");
+
+        PlaySound(hitPlayerClip);
 
         if (knockback)
         {
@@ -401,13 +432,28 @@ public class PlayerController : MonoBehaviour
     // Shoot
     public void Shoot()
     {
-        GameObject bulletInstance = isPoweredUp ?
-            Instantiate(powerBullet, shootPoint.transform.position, Quaternion.identity) :
-            Instantiate(bullet, shootPoint.transform.position, Quaternion.identity);
+        GameObject bulletInstance;
+
+        if (isPoweredUp)
+        {
+            bulletInstance = Instantiate(powerBullet, shootPoint.transform.position, Quaternion.identity);
+            PlaySound(shootPoweredClip);
+        }
+        else
+        {
+            bulletInstance = Instantiate(bullet, shootPoint.transform.position, Quaternion.identity);
+            PlaySound(shootClip);
+        }
 
         Missile missile = bulletInstance.GetComponent<Missile>();
         missile.Launch(lookDirection);
 
         currentAmmo--;
+    }
+
+    // Play a sound
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }

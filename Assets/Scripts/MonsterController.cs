@@ -9,6 +9,7 @@ public class MonsterController : MonoBehaviour
     private GameManager gm;
     private Rigidbody2D rb2d;
     private Animator anim;
+    private AudioSource audioSource;
 
     // Shooting
     [SerializeField] private GameObject bullet;
@@ -51,11 +52,16 @@ public class MonsterController : MonoBehaviour
     // Bullet timer
     private float bulletTimer;
 
+    // Audio clips
+    [SerializeField] private AudioClip hitMonsterClip;
+    [SerializeField] private AudioClip shootClip;
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        audioSource = gameObject.GetComponent<AudioSource>();
 
         // Let's get reference to the Player.
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -168,6 +174,7 @@ public class MonsterController : MonoBehaviour
 
             // The monster should flash briefly to signal it's been hit.
             anim.Play("Flash");
+            PlaySound(hitMonsterClip);
         }
 
         if (col.CompareTag("PlayerPowerMissile"))
@@ -177,6 +184,7 @@ public class MonsterController : MonoBehaviour
 
             // The monster should flash briefly to signal it's been hit.
             anim.Play("Flash");
+            PlaySound(hitMonsterClip);
         }
     }
 
@@ -195,10 +203,17 @@ public class MonsterController : MonoBehaviour
         shootDirection.Normalize();
 
         GameObject bulletInstance = Instantiate(bullet, shootPoint.transform.position, Quaternion.identity);
+        PlaySound(shootClip);
 
         Missile missile = bulletInstance.GetComponent<Missile>();
         missile.Launch(shootDirection);
 
         bulletTimer = 0;
+    }
+
+    // Play a sound
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }

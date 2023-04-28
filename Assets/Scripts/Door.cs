@@ -7,14 +7,8 @@ using TMPro;
 
 public class Door : MonoBehaviour
 {
-    // How far away is the player from the door?
-    private float distanceToPlayer;
-
-    // Range within which the player will make the door open.
-    [SerializeField] private float wakeRange = 3;
-
     // Is the door open?
-    private bool isOpen = false;
+    public bool isOpen = false;
 
     // References
     private PlayerController player;
@@ -23,6 +17,9 @@ public class Door : MonoBehaviour
 
     // UI
     public TMP_Text doorText;
+
+    // Audio clip
+    [SerializeField] private AudioClip doorClip;
 
     void Awake()
     {
@@ -34,17 +31,7 @@ public class Door : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         anim.enabled = false;
-    }
-
-    void Update()
-    {
-        // Check whether the Player has found the key.
-        if (player.hasKey)
-        {
-            // Check whether the Player is close enough for the door to open.
-            RangeCheck();
-        }
-    }
+    }       
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -71,26 +58,21 @@ public class Door : MonoBehaviour
             doorText.gameObject.SetActive(false);
         }
     }
-
-    void RangeCheck()
+       
+    // Open the door
+    public void Open()
     {
-        distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        anim.enabled = true;
+        player.PlaySound(doorClip);
+        anim.Play("Door_Opening");
+        isOpen = true;
+    }
 
-        // Is the door close enough?
-        if (distanceToPlayer <= wakeRange)
-        {
-            anim.enabled = true;
-            anim.Play("Door_Opening");
-            isOpen = true;
-        }
-        else
-        {
-            // If the door is open, close it.
-            if (isOpen)
-            {
-                anim.Play("Door_Closing");
-                isOpen = false;
-            }
-        }
+    // Close the door
+    public void Close()
+    {
+        player.PlaySound(doorClip);
+        anim.Play("Door_Closing");
+        isOpen = false;
     }
 }

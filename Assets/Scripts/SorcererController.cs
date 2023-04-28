@@ -10,6 +10,7 @@ public class SorcererController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Animator anim;
     private GameManager gm;
+    private AudioSource audioSource;
 
     // Shooting
     [SerializeField] private GameObject bullet;
@@ -36,10 +37,15 @@ public class SorcererController : MonoBehaviour
     // Bullet timer
     private float bulletTimer;
 
+    // Audio clips
+    [SerializeField] private AudioClip hitSorcererClip;
+    [SerializeField] private AudioClip shootClip;
+
     void Start()
     {
         anim = GetComponent<Animator>();
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        audioSource = gameObject.GetComponent<AudioSource>();
 
         // Let's get reference to the Player.
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -123,8 +129,19 @@ public class SorcererController : MonoBehaviour
             Destroy(col.gameObject);
             currentHealth--;
 
-            // The monster should flash briefly to signal it's been hit.
+            // The sorcerer should flash briefly to signal it's been hit.
             anim.Play("Flash");
+            PlaySound(hitSorcererClip);
+        }
+
+        if (col.CompareTag("PlayerPowerMissile"))
+        {
+            Destroy(col.gameObject);
+            currentHealth -= 2;
+
+            // The sorcerer should flash briefly to signal it's been hit.
+            anim.Play("Flash");
+            PlaySound(hitSorcererClip);
         }
     }
 
@@ -170,10 +187,17 @@ public class SorcererController : MonoBehaviour
         shootDirection.Normalize();
 
         GameObject bulletInstance = Instantiate(bullet, shootPoint.transform.position, Quaternion.identity);
+        PlaySound(shootClip);
 
         Missile missile = bulletInstance.GetComponent<Missile>();
         missile.Launch(shootDirection);
 
         bulletTimer = 0;
+    }
+
+    // Play a sound
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }
