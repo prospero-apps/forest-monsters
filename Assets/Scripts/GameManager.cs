@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     // Volume
     public float volume;
+    //public static float originalVolume;
         
     // The keys
     private static string scoreKey = "PLAYER_SCORE";
@@ -40,13 +41,13 @@ public class GameManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.Play();
+        LoadVolume();
         LoadData();
     }
 
     void OnDestroy()
     {
-        volume = audioSource.volume;
-        PlayerPrefs.SetFloat(volumeKey, volume);
+        SaveVolume();
     }       
 
     // Save data
@@ -180,5 +181,39 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    // Sound
+    public void LoadVolume()
+    {
+        if (PlayerPrefs.HasKey(volumeKey))
+        {
+            volume = PlayerPrefs.GetFloat(volumeKey);
+            audioSource.volume = volume;
+        }
+    }
+
+    public void SaveVolume()
+    {
+        volume = audioSource.volume;
+        //volume = originalVolume;
+        PlayerPrefs.SetFloat(volumeKey, volume);
+    }
+
+    //public static IEnumerator FadeSound(AudioSource audioSource, float duration, float targetVolume)
+    //{
+    //    originalVolume = audioSource.volume;
+
+    //    float currentTime = 0;
+    //    float startVolume = audioSource.volume;
+
+    //    while (currentTime < duration)
+    //    {
+    //        currentTime += Time.deltaTime;
+    //        audioSource.volume = Mathf.Lerp(startVolume, targetVolume, currentTime / duration);
+    //        yield return null;
+    //    }
+
+    //    yield break;
+    //}
 }
 
