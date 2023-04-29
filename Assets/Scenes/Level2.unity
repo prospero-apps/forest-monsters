@@ -1082,6 +1082,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!225 &651632343 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 5790621668377463408, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+  m_PrefabInstance: {fileID: 852518445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &702627445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2549,6 +2554,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 38621787639056259, guid: 7a5f39afe37629f47a5510ee1bd52a85, type: 3}
+      propertyPath: duration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 38621787639056259, guid: 7a5f39afe37629f47a5510ee1bd52a85, type: 3}
+      propertyPath: canvasGroup
+      value: 
+      objectReference: {fileID: 651632343}
     - target: {fileID: 1607740191864860723, guid: 7a5f39afe37629f47a5510ee1bd52a85, type: 3}
       propertyPath: ammoText
       value: 

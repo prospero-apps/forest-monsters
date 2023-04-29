@@ -14,6 +14,7 @@ public class Door : MonoBehaviour
     private PlayerController player;
     private Animator anim;
     private GameManager gm;
+    private Fade fade;
 
     // UI
     public TMP_Text doorText;
@@ -28,6 +29,7 @@ public class Door : MonoBehaviour
 
     void Start()
     {
+        fade = FindObjectOfType<Fade>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         anim.enabled = false;
@@ -46,9 +48,19 @@ public class Door : MonoBehaviour
             else if (isOpen)
             {
                 gm.SaveData();
-                SceneManager.LoadScene(gm.levelToLoad);
+                StartCoroutine(NextLevel());
             }
         }
+    }
+
+    IEnumerator NextLevel()
+    {        
+        // Fade in
+        fade.FadeIn();
+
+        // Wait for a second and then change scene.
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene(gm.levelToLoad);
     }
 
     void OnTriggerExit2D(Collider2D col)

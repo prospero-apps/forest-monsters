@@ -42,8 +42,9 @@ public class Menus : MonoBehaviour
     // The level info should disappear after a while
     IEnumerator HideInfoMenu()
     {
+        yield return new WaitForSeconds(1);
         gm.PauseGame();
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSecondsRealtime(5);
         infoMenu.SetActive(false);
         gm.ResumeGame();
     }

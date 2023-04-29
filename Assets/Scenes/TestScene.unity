@@ -427,6 +427,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cec8de92b0f3cf45889f7c5bde967b4, type: 3}
+--- !u!225 &385577824 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 5790621668377463408, guid: b294bbd92b5069b418b75ff62763eeea, type: 3}
+  m_PrefabInstance: {fileID: 8856824543233997807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &405692655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2659,6 +2664,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 38621787639056259, guid: 7a5f39afe37629f47a5510ee1bd52a85, type: 3}
+      propertyPath: duration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 38621787639056259, guid: 7a5f39afe37629f47a5510ee1bd52a85, type: 3}
+      propertyPath: canvasGroup
+      value: 
+      objectReference: {fileID: 385577824}
     - target: {fileID: 1607740191864860723, guid: 7a5f39afe37629f47a5510ee1bd52a85, type: 3}
       propertyPath: ammoText
       value: 

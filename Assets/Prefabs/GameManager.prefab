@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4171883187267229655}
   - component: {fileID: 1607740191864860723}
   - component: {fileID: 7943597351988083858}
+  - component: {fileID: 38621787639056259}
+  - component: {fileID: 8243067453122111567}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -149,3 +151,31 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &38621787639056259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866266886948531939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfcdd88a18d68a94a9a4a8cff7ea19d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 0}
+  fadeIn: 0
+  fadeOut: 0
+  duration: 0
+--- !u!114 &8243067453122111567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866266886948531939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd62c634906502e4ca04d6c71ba648c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
