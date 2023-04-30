@@ -47,6 +47,7 @@ public class Door : MonoBehaviour
             // Save the data and let the Player pass to the next level.
             else if (isOpen)
             {
+                player.StopMoving();
                 gm.SaveData();
                 StartCoroutine(NextLevel());
             }

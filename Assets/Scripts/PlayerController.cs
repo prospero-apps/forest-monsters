@@ -456,4 +456,10 @@ public class PlayerController : MonoBehaviour
     {
         audioSource.PlayOneShot(clip);
     }
+
+    // Stop moving 
+    public void StopMoving()
+    {
+        speed = 0;
+    }
 }

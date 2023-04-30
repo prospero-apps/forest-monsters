@@ -28,8 +28,7 @@ public class Menus : MonoBehaviour
                 $"You have {gm.chances} chances to kill the Sorcerer.";
         }
     }
-
-    
+        
     void Update()
     {
         // Pause or resume the game if the Pause button is pressed
@@ -44,7 +43,7 @@ public class Menus : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         gm.PauseGame();
-        yield return new WaitForSecondsRealtime(5);
+        yield return new WaitForSecondsRealtime(8);
         infoMenu.SetActive(false);
         gm.ResumeGame();
     }
@@ -71,6 +70,17 @@ public class Menus : MonoBehaviour
         {
             gm.PauseGame();
             ShowPauseMenu();
+        }
+    }
+
+    // Skip the info message at the beginning of a level.
+    public void Skip()
+    {
+        infoMenu.SetActive(false);
+
+        if (gm.isPaused)
+        {
+            gm.ResumeGame();
         }
     }
 }
