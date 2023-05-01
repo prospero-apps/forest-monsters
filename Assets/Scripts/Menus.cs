@@ -78,9 +78,6 @@ public class Menus : MonoBehaviour
     {
         infoMenu.SetActive(false);
 
-        if (gm.isPaused)
-        {
-            gm.ResumeGame();
-        }
+        gm.ResumeGame();
     }
 }

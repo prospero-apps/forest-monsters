@@ -398,8 +398,7 @@ public class PlayerController : MonoBehaviour
 
     // The Player takes damage if they bump into a monster or get shot.
     public void Damage(int damageAmount, float direction, bool knockback = false, float knockbackPowerX = 1000, float knockbackPowerY = 50)
-    {
-        //currentHealth -= damageAmount;
+    {        
         currentHealth = Mathf.Clamp(currentHealth - damageAmount, 0, maxHealth);
 
         // The Player should flash briefly to show us something bad has happened.

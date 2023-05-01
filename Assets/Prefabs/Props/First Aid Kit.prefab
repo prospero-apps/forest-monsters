@@ -16,7 +16,7 @@ GameObject:
   m_TagString: First Aid Kit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1918048916049612287
 Transform:
