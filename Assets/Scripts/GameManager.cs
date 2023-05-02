@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     // Volume
     public float volume;
         
-    // The keys
+    // The keys for data storage with PlayerPrefs
     private static string scoreKey = "PLAYER_SCORE";
     private static string highScoreKey = "PLAYER_HIGHSCORE";
     private static string currentLevelKey = "CURRENT_LEVEL";
@@ -49,7 +49,9 @@ public class GameManager : MonoBehaviour
         SaveVolume();
     }       
 
-    // Save data
+    /// <summary>
+    /// Save score, high score and current level
+    /// </summary>
     public void SaveData()
     {
         PlayerPrefs.SetInt(scoreKey, score);
@@ -63,7 +65,10 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetString(currentLevelKey, levelToLoad);
     }
 
-    // Load data
+    /// <summary>
+    /// Load current level, score, high score, number of used chances 
+    /// and volume and calculate chances
+    /// </summary>
     public void LoadData()
     {
         if (PlayerPrefs.HasKey(currentLevelKey))
@@ -95,26 +100,36 @@ public class GameManager : MonoBehaviour
         }
     }
         
+    /// <summary>
+    /// Lose one chance of repeating the last level
+    /// </summary>
     public void LoseChance()
     {
         chancesUsed++;
         PlayerPrefs.SetInt(chancesUsedKey, chancesUsed);
     }
 
-    // Increase score
+    /// <summary>
+    /// Increase score
+    /// </summary>
+    /// <param name="amount">The amount to increase by</param>
     public void AddScore(int amount)
     {
         score += amount;
     }
        
-    // Pause the game
+    /// <summary>
+    /// Pause the game
+    /// </summary>
     public void PauseGame()
     {
         isPaused = true;
         Time.timeScale = 0;
     }
 
-    // Resume the game
+    /// <summary>
+    /// Resume the game
+    /// </summary>
     public void ResumeGame()
     {
         isPaused = false;
@@ -122,13 +137,19 @@ public class GameManager : MonoBehaviour
     }
 
 
-    // Main Menu Actions       
+    // Main Menu Actions
+    
+    /// <summary>
+    /// Load the current level
+    /// </summary>
     public void Play()
     {
         SceneManager.LoadScene(currentLevel);
     }
 
-    // Reset the game after the game is over
+    /// <summary>
+    /// Reset score, number of used chances and current level after the game is over
+    /// </summary>
     void Reset()
     {
         score = 0;
@@ -137,30 +158,47 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt(scoreKey, score);
         PlayerPrefs.SetString(currentLevelKey, currentLevel);
         PlayerPrefs.SetInt(chancesUsedKey, chancesUsed);
+
+        ResumeGame();
     }
 
+    /// <summary>
+    /// Reset all data except high score and start the game over from level 1
+    /// </summary>
     public void NewGame()
     {
         Reset();
         SceneManager.LoadScene(currentLevel);
     }
 
+    /// <summary>
+    /// Load the Story scene
+    /// </summary>
     public void ShowStory()
     {
         SceneManager.LoadScene("Story");
     }
 
+    /// <summary>
+    /// Load the Instructions scene
+    /// </summary>
     public void ShowInstructions()
     {
         SceneManager.LoadScene("Instructions");
     }
 
+    /// <summary>
+    /// Reset high score
+    /// </summary>
     public void ResetHighScore()
     {
         highScore = 0;
         PlayerPrefs.SetInt(highScoreKey, highScore);
     }
 
+    /// <summary>
+    /// Quit the game
+    /// </summary>
     public void Quit()
     {
 #if UNITY_EDITOR
@@ -169,19 +207,26 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+    /// <summary>
+    /// Reset the game and then quit
+    /// </summary>
     public void ResetAndQuit()
     {
         Reset();
         Quit();
     }
 
-    // Navigation to Main Menu from other scenes
+    /// <summary>
+    /// Navigate to Main Menu from other scenes
+    /// </summary>
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
 
-    // Sound volume
+    /// <summary>
+    /// Load sound volume
+    /// </summary>
     public void LoadVolume()
     {
         if (PlayerPrefs.HasKey(volumeKey))
@@ -191,6 +236,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Save sound vulume
+    /// </summary>
     public void SaveVolume()
     {
         volume = audioSource.volume;

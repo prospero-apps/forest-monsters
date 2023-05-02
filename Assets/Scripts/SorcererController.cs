@@ -145,7 +145,9 @@ public class SorcererController : MonoBehaviour
         }
     }
 
-    // Spawn on a random platform.
+    /// <summary>
+    /// Make the Sorcerer spawn on a random platform
+    /// </summary>
     void Spawn()
     {
         // Choose the platform to spawn on and become its child.
@@ -155,23 +157,35 @@ public class SorcererController : MonoBehaviour
         // Position the sorcerer in the middle of the platform.
         transform.position = new Vector3(randomPlatform.transform.position.x, randomPlatform.transform.position.y + 0.25f, 0);
     }
-        
+    
+    /// <summary>
+    /// Calculate the Sorcerer's health
+    /// </summary>
     void CalculateHealth()
     {
         // The sorcerer's health depends on the Player's score. It's between 10 and 20.
         currentHealth = Mathf.Clamp(20 - (gm.score / 100), 10, 20);
     }
       
+    /// <summary>
+    /// Make the Sorcerer invisible
+    /// </summary>
     void MakeInvisible()
     {
         spriteRenderer.enabled = false;
     }
 
+    /// <summary>
+    /// Make the Sorcerer visible
+    /// </summary>
     public void MakeVisible()
     {
         spriteRenderer.enabled = true;
     }
 
+    /// <summary>
+    /// Make the Sorcerer die and the Player win the game. Load the Game Over Success scene
+    /// </summary>
     void Die()
     {
         // Remove Sorcerer
@@ -181,6 +195,9 @@ public class SorcererController : MonoBehaviour
         SceneManager.LoadScene("GameOverSuccess");
     }
 
+    /// <summary>
+    /// Shoot in the direction the Sorcerer is facing
+    /// </summary>
     void Shoot()
     {
         Vector2 shootDirection = new Vector2(direction, 0);
@@ -195,7 +212,10 @@ public class SorcererController : MonoBehaviour
         bulletTimer = 0;
     }
 
-    // Play a sound
+    /// <summary>
+    /// Play a sound
+    /// </summary>
+    /// <param name="clip">Clip to play</param>
     public void PlaySound(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);

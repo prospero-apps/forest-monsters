@@ -355,7 +355,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // The player dies and the scene is reloaded.
+    /// <summary>
+    /// Make the Player die and reload the scene. If this is the last level,
+    /// the Player will lose the game if they've used up all chances.
+    /// </summary>
     public void Die()
     {
         // If this is Level 10...
@@ -383,7 +386,9 @@ public class PlayerController : MonoBehaviour
         }        
     }
 
-    // Remove the shield when the time the Player is protected by it is up
+    /// <summary>
+    /// Remove the shield when the time the Player is protected by it is up
+    /// </summary>
     private void RemoveShield()
     {
         // If the shield is a child of the Player...
@@ -396,7 +401,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // The Player takes damage if they bump into a monster or get shot.
+    /// <summary>
+    /// Make the Player take damage if they bump into a monster or get shot
+    /// </summary>
+    /// <param name="damageAmount">Amount of damage</param>
+    /// <param name="direction">Knockback direction</param>
+    /// <param name="knockback">Whether there should be knockback</param>
+    /// <param name="knockbackPowerX">Amount of knockback on horizotal axis</param>
+    /// <param name="knockbackPowerY">Amount of knockback on vertical axis</param>
     public void Damage(int damageAmount, float direction, bool knockback = false, float knockbackPowerX = 1000, float knockbackPowerY = 50)
     {        
         currentHealth = Mathf.Clamp(currentHealth - damageAmount, 0, maxHealth);
@@ -428,7 +440,9 @@ public class PlayerController : MonoBehaviour
         yield return 0;
     }
 
-    // Shoot
+    /// <summary>
+    /// Make the Player shoot in the direction they're facing and reduce their ammo by one
+    /// </summary>
     public void Shoot()
     {
         GameObject bulletInstance;
@@ -450,13 +464,18 @@ public class PlayerController : MonoBehaviour
         currentAmmo--;
     }
 
-    // Play a sound
+    /// <summary>
+    /// Play a sound
+    /// </summary>
+    /// <param name="clip">Clip to play</param>
     public void PlaySound(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
     }
 
-    // Stop moving 
+    /// <summary>
+    /// Make the Player stop
+    /// </summary>
     public void StopMoving()
     {
         speed = 0;

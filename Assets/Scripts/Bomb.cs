@@ -29,7 +29,7 @@ public class Bomb : MonoBehaviour
             StartCoroutine(Explode());
         }
     }
-
+        
     IEnumerator Explode()
     {
         // Wake up and explode.

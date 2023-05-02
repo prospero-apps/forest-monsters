@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FadeController : MonoBehaviour
 {
+    // References
     private Fade fade;
         
     void Start()

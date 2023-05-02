@@ -10,6 +10,7 @@ public class HUD : MonoBehaviour
     private PlayerController player;
     private GameManager gm;
 
+    // UI elements
     [SerializeField] private Sprite[] healthSprites;
     [SerializeField] private Image healthUI;
     [SerializeField] private TMP_Text ammoText;

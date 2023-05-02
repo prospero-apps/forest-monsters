@@ -188,6 +188,9 @@ public class MonsterController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Destroy the monster and make the player score
+    /// </summary>
     void Die()
     {
         // Remove Monster
@@ -197,6 +200,9 @@ public class MonsterController : MonoBehaviour
         gm.AddScore(playerScore);
     }
 
+    /// <summary>
+    /// Shoot in the direction the monster is facing
+    /// </summary>
     void Shoot()
     {
         Vector2 shootDirection = new Vector2(direction, 0);
@@ -211,7 +217,10 @@ public class MonsterController : MonoBehaviour
         bulletTimer = 0;
     }
 
-    // Play a sound
+    /// <summary>
+    /// Play a sound
+    /// </summary>
+    /// <param name="clip">Clip to play</param>
     public void PlaySound(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);

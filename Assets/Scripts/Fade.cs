@@ -8,6 +8,7 @@ public class Fade : MonoBehaviour
     public bool fadeIn = false;
     public bool fadeOut = false;
 
+    // How long it takes to fade.
     public float duration;
         
     void Update()
@@ -37,11 +38,17 @@ public class Fade : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Make the scene fade in
+    /// </summary>
     public void FadeIn()
     {
         fadeIn = true;
     }
 
+    /// <summary>
+    /// Make the scene fade out
+    /// </summary>
     public void FadeOut()
     {
         fadeOut = true;

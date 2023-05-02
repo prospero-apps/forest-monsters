@@ -48,17 +48,25 @@ public class Menus : MonoBehaviour
         gm.ResumeGame();
     }
 
+    /// <summary>
+    /// Show the Pause menu
+    /// </summary>
     void ShowPauseMenu()
     {
         pauseMenu.SetActive(true);
     }
 
+    /// <summary>
+    /// Hide the Pause menu
+    /// </summary>
     void HidePauseMenu()
     {
         pauseMenu.SetActive(false);
     }
 
-    // Pause if not paused or resume if paused
+    /// <summary>
+    /// Pause if not paused or resume if paused
+    /// </summary>
     public void PauseOrResume()
     {
         if (gm.isPaused)
@@ -73,11 +81,12 @@ public class Menus : MonoBehaviour
         }
     }
 
-    // Skip the info message at the beginning of a level.
+    /// <summary>
+    /// Skip the info message at the beginning of a level
+    /// </summary>
     public void Skip()
     {
         infoMenu.SetActive(false);
-
         gm.ResumeGame();
     }
 }

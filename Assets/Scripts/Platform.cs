@@ -34,6 +34,7 @@ public class Platform : MonoBehaviour
     // Whether the platform was originally mobile on enter
     private bool kicked = false;
 
+    // References
     private Rigidbody2D rb2d;
         
     void Start()

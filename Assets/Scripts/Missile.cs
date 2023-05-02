@@ -24,6 +24,10 @@ public class Missile : MonoBehaviour
         }
     }    
 
+    /// <summary>
+    /// Make the missile move
+    /// </summary>
+    /// <param name="direction">Direction to move in</param>
     public void Launch(Vector2 direction)
     {
         rb2d.velocity = direction * force;

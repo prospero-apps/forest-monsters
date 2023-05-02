@@ -71,8 +71,10 @@ public class Door : MonoBehaviour
             doorText.gameObject.SetActive(false);
         }
     }
-       
-    // Open the door
+
+    /// <summary>
+    /// Open the door
+    /// </summary>
     public void Open()
     {
         anim.enabled = true;
@@ -81,7 +83,9 @@ public class Door : MonoBehaviour
         isOpen = true;
     }
 
-    // Close the door
+    /// <summary>
+    /// Close the door
+    /// </summary>
     public void Close()
     {
         player.PlaySound(doorClip);

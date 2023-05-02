@@ -34,6 +34,9 @@ public class Story : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Build the text of the story
+    /// </summary>
     void CreateStoryText()
     {
         sb.Append("Many a year ago, a sorcerer cast a spell on a cheerful forest, ");
